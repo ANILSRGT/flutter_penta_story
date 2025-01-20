@@ -41,7 +41,9 @@ dependencies:
   image_cropper: ^8.1.0
 
   penta_core:
-    path: ./modules/penta_core
+    git:
+      url: https://github.com/ANILSRGT/penta_core.git
+      ref: main
 
 dev_dependencies:
   flutter_test:

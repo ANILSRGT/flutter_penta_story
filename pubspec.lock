@@ -805,9 +805,11 @@ packages:
   penta_core:
     dependency: "direct main"
     description:
-      path: "modules/penta_core"
-      relative: true
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: cf0689deb01bf79f87b64dc56ab06c0534a4ea71
+      url: "https://github.com/ANILSRGT/penta_core.git"
+    source: git
     version: "0.0.1"
   petitparser:
     dependency: transitive
