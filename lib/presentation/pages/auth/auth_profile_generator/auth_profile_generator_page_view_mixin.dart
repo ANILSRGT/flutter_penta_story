@@ -30,18 +30,8 @@ mixin _AuthProfileGeneratorPageViewMixin
   }
 
   Future<void> _pickProfileImage() async {
-    final pickedImage = await ImagePickerUtil.pickAndCropImage(
-      context: context,
-      ratioX: 1,
-      ratioY: 1,
-    );
-
-    final imageBytes = await pickedImage?.readAsBytes();
-    final image = imageBytes?.ext.convert.toBase64;
-
-    if (image != null) {
-      _viewModel.profileImage = image;
-    }
+    final image = await ProfieImagePicker.pickProfileImage(context: context);
+    if (image != null) _viewModel.profileImage = image;
   }
 
   void _onContinue() {

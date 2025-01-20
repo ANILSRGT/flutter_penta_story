@@ -6,6 +6,7 @@ import 'package:penta_story/presentation/pages/auth/forgot_password/forgot_passw
 import 'package:penta_story/presentation/pages/auth/onboarding/onboarding_page.dart';
 import 'package:penta_story/presentation/pages/auth/splash/splash_page.dart';
 import 'package:penta_story/presentation/pages/home/home_page.dart';
+import 'package:penta_story/presentation/pages/profile/profile_page.dart';
 import 'package:penta_story/presentation/pages/story/story_book/story_book_page.dart';
 import 'package:penta_story/presentation/pages/story/story_details/story_details_page.dart';
 
@@ -45,6 +46,9 @@ class AppRouter extends RootStackRouter {
         ),
         AutoRoute(
           page: StoryBookRoute.page,
+        ),
+        AutoRoute(
+          page: ProfileRoute.page,
         ),
       ];
 

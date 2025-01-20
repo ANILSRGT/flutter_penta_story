@@ -15,4 +15,5 @@ final class AppIcons {
   static const chevronLeft = Icons.chevron_left;
   static const chevronRight = Icons.chevron_right;
   static const search = Icons.search;
+  static const threeDotsVert = Icons.more_vert;
 }

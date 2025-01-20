@@ -1,3 +1,7 @@
 part of 'home_page.dart';
 
-mixin _HomePageViewMixin on State<_HomePageView> {}
+mixin _HomePageViewMixin on State<_HomePageView> {
+  void _onProfileAvatarTap() {
+    context.router.push(const ProfileRoute());
+  }
+}

@@ -9,7 +9,7 @@ import 'package:penta_story/core/configs/theme/i_app_theme.dart';
 import 'package:penta_story/core/extensions/localization_ext.dart';
 import 'package:penta_story/core/extensions/validation_ext.dart';
 import 'package:penta_story/core/localization/locale_keys.g.dart';
-import 'package:penta_story/core/utils/image_picker_and_crop_util.dart';
+import 'package:penta_story/core/utils/profie_image_picker.dart';
 import 'package:penta_story/presentation/pages/auth/auth_profile_generator/auth_profile_generator_page_view_model.dart';
 import 'package:penta_story/presentation/widgets/avatar/profile_avatar_widget.dart';
 import 'package:penta_story/presentation/widgets/buttons/app_elevated_button.dart';

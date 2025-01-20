@@ -21,7 +21,10 @@ class _HomePageViewState extends State<_HomePageView> with _HomePageViewMixin {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const ProfileAvatarWidget(imageData: null),
+                    ProfileAvatarWidget(
+                      imageData: null,
+                      onTap: _onProfileAvatarTap,
+                    ),
                     AppLangDropdown.circle(
                       onChanged: (_) => setState(() {}),
                     ),
