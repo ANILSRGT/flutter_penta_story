@@ -8,7 +8,7 @@
 PRODUCT_NAME = penta_story
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.pentaio.pentaStory
+PRODUCT_BUNDLE_IDENTIFIER = com.pentaioExample.pentaStory
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 com.pentaio. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2025 com.pentaioExample. All rights reserved.

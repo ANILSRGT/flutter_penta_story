@@ -1,4 +1,4 @@
-package com.pentaio.penta_story
+package com.pentaio_example.penta_story
 
 import io.flutter.embedding.android.FlutterActivity
 
