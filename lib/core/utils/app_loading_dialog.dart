@@ -1,0 +1,31 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:penta_core/penta_core.dart';
+import 'package:penta_story/presentation/widgets/loading_indicator/app_loading_indicator.dart';
+
+final class AppLoadingDialog {
+  const AppLoadingDialog._();
+
+  static Future<void> showLoadingDialog<T>({
+    required BuildContext context,
+    required Future<T> Function() future,
+    required FutureOr<void> Function(T value) callback,
+    LoadingCallbackDialogCloseTypes closeType =
+        LoadingCallbackDialogCloseTypes.beforeCallback,
+    bool cancelable = false,
+    FutureOr<void> Function()? cancelableCallback,
+  }) async {
+    return LoadingCallbackDialog.showLoadingDialog(
+      context: context,
+      future: future,
+      callback: callback,
+      closeType: closeType,
+      cancelable: cancelable,
+      customLoading: const Center(
+        child: AppLoadingIndicator(),
+      ),
+      cancelableCallback: cancelableCallback,
+    );
+  }
+}

@@ -1,0 +1,143 @@
+{
+    "pages": {
+        "onboarding": {
+            "items": {
+                "1": {
+                    "title": "Hikaye Evrenine Hoş Geldiniz",
+                    "subtitle": "Okuyun ya da Dinleyin—Sizin Seçiminiz",
+                    "description": "Okumayı mı yoksa dinlemeyi mi tercih edersiniz, biz buradayız. İstediğiniz zaman, istediğiniz yerde, seçtiğiniz şekilde büyüleyici hikayelere dalın."
+                },
+                "2": {
+                    "title": "Zahmetsiz ve Etkileyici",
+                    "subtitle": "Hayatınıza Uyan Hikayeler",
+                    "description": "Okuma ve dinleme arasında sorunsuz bir şekilde geçiş yapın. Evde, işe giderken ya da dinlenirken, favori hikayeleriniz her zaman yanınızda."
+                },
+                "3": {
+                    "title": "Başlamaya Hazır mısınız?",
+                    "subtitle": "Hikaye Yolculuğunuza Bugün Başlayın",
+                    "description": "İlk hikayenizi seçin ve okumayı ya da dinlemeyi seçin—hayal gücü dünyasına dalın."
+                }
+            },
+            "itemWidget": {
+                "backButton": {
+                    "label": "Geri"
+                },
+                "nextButton": {
+                    "label": "İleri"
+                },
+                "skipButton": {
+                    "label": "Atla"
+                },
+                "completedButton": {
+                    "label": "Oku / Dinle"
+                }
+            }
+        },
+        "emailVerification": {
+            "title": "E-postanızı Doğrulayın",
+            "description": "E-posta adresinize bir e-posta gönderdik. Devam etmek için lütfen e-posta adresinizi doğrulayın.",
+            "resendButton": {
+                "label": "E-postayı Tekrar Gönder"
+            }
+        },
+        "authentication": {
+            "fields": {
+                "email": {
+                    "hint": "E-posta"
+                },
+                "password": {
+                    "hint": "Şifre"
+                }
+            },
+            "buttons": {
+                "signIn": {
+                    "label": "Giriş Yap"
+                },
+                "signUp": {
+                    "label": "Kaydol"
+                },
+                "forgotPassword": {
+                    "label": "Şifrenizi mi unuttunuz?"
+                },
+                "hasAccount": {
+                    "has": {
+                        "label": "Zaten bir hesabınız var mı?",
+                        "sublabel": "Giriş Yap"
+                    },
+                    "not": {
+                        "label": "Hesabınız yok mu?",
+                        "sublabel": "Kaydol"
+                    }
+                }
+            }
+        },
+        "authProfileGenerator": {
+            "fields": {
+                "username": {
+                    "hint": "Kullanıcı Adı"
+                },
+                "firstName": {
+                    "hint": "Ad"
+                },
+                "lastName": {
+                    "hint": "Soyad"
+                },
+                "bio": {
+                    "hint": "Biyografi (İsteğe Bağlı)"
+                }
+            },
+            "buttons": {
+                "continue": {
+                    "label": "Devam Et"
+                }
+            }
+        },
+        "home": {
+            "newStoriesTitle": "Yeni Hikayeler",
+            "popularStoriesTitle": "Popüler Hikayeler"
+        },
+        "story": {
+            "summary": {
+                "title": "Özet"
+            },
+            "readButton": {
+                "label": "Oku"
+            },
+            "listenButton": {
+                "label": "Dinle"
+            }
+        }
+    },
+    "widgets": {
+        "dropdown": {
+            "appLangDropdown": {
+                "field": {
+                    "label": "Dil"
+                }
+            }
+        },
+        "story": {
+            "storyGridCard": {
+                "pagesCount": {
+                    "singular": "1 Sayfa",
+                    "plural": "{} Sayfa"
+                }
+            }
+        }
+    },
+    "validations": {
+        "required": {
+            "email": "E-posta gerekli",
+            "password": "Şifre gerekli",
+            "username": "Kullanıcı adı gerekli",
+            "firstName": "Ad gerekli",
+            "lastName": "Soyad gerekli"
+        },
+        "length": {
+            "password": "Şifre en az {} karakter olmalıdır"
+        },
+        "invalid": {
+            "email": "Geçersiz e-posta adresi"
+        }
+    }
+}
