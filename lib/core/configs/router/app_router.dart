@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:penta_story/presentation/pages/auth/auth_profile_generator/auth_profile_generator_page.dart';
 import 'package:penta_story/presentation/pages/auth/authentication/authentication_page.dart';
 import 'package:penta_story/presentation/pages/auth/email_verification/email_verification_page.dart';
+import 'package:penta_story/presentation/pages/auth/forgot_password/forgot_password_page.dart';
 import 'package:penta_story/presentation/pages/auth/onboarding/onboarding_page.dart';
 import 'package:penta_story/presentation/pages/auth/splash/splash_page.dart';
 import 'package:penta_story/presentation/pages/home/home_page.dart';
@@ -29,6 +30,9 @@ class AppRouter extends RootStackRouter {
         ),
         AutoRoute(
           page: EmailVerificationRoute.page,
+        ),
+        AutoRoute(
+          page: ForgotPasswordRoute.page,
         ),
         AutoRoute(
           page: AuthProfileGeneratorRoute.page,

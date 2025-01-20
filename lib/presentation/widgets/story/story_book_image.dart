@@ -70,9 +70,22 @@ class StoryBookImage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(fullScalePercent * 12),
                   ),
-                  child: Image(
-                    image: image,
-                    fit: BoxFit.cover,
+                  child: DecoratedBox(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.black,
+                          Colors.black12,
+                        ],
+                      ),
+                    ),
+                    child: Image(
+                      image: image,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const SizedBox();
+                      },
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -135,6 +148,7 @@ class _StoryBookOpenedImage extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: image,
+                      onError: (exception, stackTrace) => const SizedBox(),
                       fit: BoxFit.cover,
                     ),
                   ),

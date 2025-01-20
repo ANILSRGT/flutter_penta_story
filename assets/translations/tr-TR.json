@@ -40,6 +40,13 @@
                 "label": "E-postayı Tekrar Gönder"
             }
         },
+        "forgotPassword": {
+            "title": "Şifremi Unuttum",
+            "description": "E-posta adresinizi girin ve şifrenizi sıfırlamak için size bir bağlantı göndereceğiz.",
+            "sendButton": {
+                "label": "E-posta Gönder"
+            }
+        },
         "authentication": {
             "fields": {
                 "email": {

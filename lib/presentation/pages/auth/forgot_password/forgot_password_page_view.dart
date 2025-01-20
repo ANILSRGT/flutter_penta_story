@@ -1,28 +1,24 @@
-part of 'email_verification_page.dart';
+part of 'forgot_password_page.dart';
 
-class _EmailVerificationPageView extends StatefulWidget {
-  const _EmailVerificationPageView();
+class _ForgotPasswordPageView extends StatefulWidget {
+  const _ForgotPasswordPageView();
 
   @override
-  State<_EmailVerificationPageView> createState() =>
-      _EmailVerificationPageViewState();
+  State<_ForgotPasswordPageView> createState() =>
+      _ForgotPasswordPageViewState();
 }
 
-class _EmailVerificationPageViewState extends State<_EmailVerificationPageView>
-    with _EmailVerificationPageViewMixin {
+class _ForgotPasswordPageViewState extends State<_ForgotPasswordPageView>
+    with _ForgotPasswordPageViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: AppLangDropdown.circle(
-          onChanged: (_) => setState(() {}),
-        ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(AppIcons.logout),
+          AppLangDropdown.circle(
+            onChanged: (_) => setState(() {}),
           ),
+          context.ext.sizedBox.width.lg,
         ],
       ),
       body: SafeArea(
@@ -39,12 +35,12 @@ class _EmailVerificationPageViewState extends State<_EmailVerificationPageView>
                       landscape: context.ext.screen.height * 0.2,
                     ),
                     child: SvgPicture.asset(
-                      AppVectors.mailbox,
+                      AppVectors.forgotPass,
                     ),
                   ),
                   context.ext.sizedBox.height.xl2,
                   Text(
-                    LocaleKeys.pagesEmailVerificationTitle.translate,
+                    LocaleKeys.pagesForgotPasswordTitle.translate,
                     textAlign: TextAlign.center,
                     style: context.ext.theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.w600,
@@ -52,16 +48,15 @@ class _EmailVerificationPageViewState extends State<_EmailVerificationPageView>
                   ),
                   context.ext.sizedBox.height.xs,
                   Text(
-                    LocaleKeys.pagesEmailVerificationDescription.translate,
+                    LocaleKeys.pagesForgotPasswordDescription.translate,
                     textAlign: TextAlign.center,
                     style: context.ext.theme.textTheme.bodyLarge,
                   ),
                   context.ext.sizedBox.height.xl6,
                   AppElevatedButton(
-                    onPressed: _emailCheck,
+                    onPressed: _sendEmail,
                     child: Text(
-                      LocaleKeys
-                          .pagesEmailVerificationResendButtonLabel.translate,
+                      LocaleKeys.pagesForgotPasswordSendButtonLabel.translate,
                     ),
                   ),
                   context.ext.sizedBox.height.xl,

@@ -12,6 +12,7 @@ import 'package:penta_story/core/extensions/validation_ext.dart';
 import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/presentation/pages/auth/authentication/authentication_page_view_model.dart';
 import 'package:penta_story/presentation/widgets/buttons/app_elevated_button.dart';
+import 'package:penta_story/presentation/widgets/dropdown/app_lang_dropdown.dart';
 import 'package:penta_story/presentation/widgets/fields/app_text_form_field.dart';
 
 part 'authentication_page_view.dart';

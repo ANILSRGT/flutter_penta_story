@@ -9,4 +9,5 @@ final class AppVectors {
   static const listening = '$_basePath/listening_vector$_ext';
   static const login = '$_basePath/login_vector$_ext';
   static const mailbox = '$_basePath/mailbox_vector$_ext';
+  static const forgotPass = '$_basePath/forgot_pass_vector$_ext';
 }

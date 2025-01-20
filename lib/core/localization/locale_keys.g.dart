@@ -19,6 +19,9 @@ final class LocaleKeys {
 	static String get pagesEmailVerificationTitle => 'pages.emailVerification.title';
 	static String get pagesEmailVerificationDescription => 'pages.emailVerification.description';
 	static String get pagesEmailVerificationResendButtonLabel => 'pages.emailVerification.resendButton.label';
+	static String get pagesForgotPasswordTitle => 'pages.forgotPassword.title';
+	static String get pagesForgotPasswordDescription => 'pages.forgotPassword.description';
+	static String get pagesForgotPasswordSendButtonLabel => 'pages.forgotPassword.sendButton.label';
 	static String get pagesAuthenticationFieldsEmailHint => 'pages.authentication.fields.email.hint';
 	static String get pagesAuthenticationFieldsPasswordHint => 'pages.authentication.fields.password.hint';
 	static String get pagesAuthenticationButtonsSignInLabel => 'pages.authentication.buttons.signIn.label';

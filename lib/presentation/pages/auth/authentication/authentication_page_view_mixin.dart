@@ -19,6 +19,10 @@ mixin _AuthenticationPageViewMixin on State<_AuthenticationPageView> {
     super.dispose();
   }
 
+  void _forgotPassword() {
+    context.router.push(const ForgotPasswordRoute());
+  }
+
   void _authButton() {
     // TODO: Auth
 

@@ -16,6 +16,9 @@ class __AuthProfileGeneratorPageViewState
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        title: AppLangDropdown.circle(
+          onChanged: (_) => setState(() {}),
+        ),
         actions: [
           IconButton(
             onPressed: () {},

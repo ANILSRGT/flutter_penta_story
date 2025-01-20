@@ -21,7 +21,11 @@ class StoryGridCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: StoryBookImage(image: image)),
+        Expanded(
+          child: StoryBookImage(
+            image: image,
+          ),
+        ),
         context.ext.sizedBox.height.sm,
         Text(
           title,

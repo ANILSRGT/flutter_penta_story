@@ -13,6 +13,14 @@ class _AuthenticationPageViewState extends State<_AuthenticationPageView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          AppLangDropdown.circle(
+            onChanged: (_) => setState(() {}),
+          ),
+          context.ext.sizedBox.width.lg,
+        ],
+      ),
       body: SafeArea(
         child: Center(
           child: context.ext.screen.byOrientation(
@@ -128,7 +136,7 @@ class _AuthenticationPageViewState extends State<_AuthenticationPageView>
     return Align(
       alignment: Alignment.centerRight,
       child: GestureDetector(
-        onTap: () {},
+        onTap: _forgotPassword,
         child: Text(
           LocaleKeys.pagesAuthenticationButtonsForgotPasswordLabel.translate,
           textAlign: TextAlign.right,
