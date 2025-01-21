@@ -7,36 +7,8 @@ class _OnboardingPageView extends StatefulWidget {
   State<_OnboardingPageView> createState() => _OnboardingPageViewState();
 }
 
-class _OnboardingPageViewState extends State<_OnboardingPageView> {
-  final PageController _pageController = PageController();
-
-  void _onNext() {
-    _pageController.nextPage(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  void _onBack() {
-    if (_pageController.page! <= 0) return;
-    _pageController.previousPage(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  void _onSkip(int lastIndex) {
-    _pageController.animateToPage(
-      lastIndex,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  void _onComplete() {
-    context.router.replaceAll([const AuthenticationRoute()]);
-  }
-
+class _OnboardingPageViewState extends State<_OnboardingPageView>
+    with _OnboardingPageViewMixin {
   @override
   Widget build(BuildContext context) {
     final pages = [

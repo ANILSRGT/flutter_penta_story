@@ -175,15 +175,15 @@ class _AuthenticationPageViewState extends State<_AuthenticationPageView>
               children: [
                 TextSpan(
                   text:
-                      '${_viewModel.isLoginState ? LocaleKeys.pagesAuthenticationButtonsHasAccountHasLabel.translate : LocaleKeys.pagesAuthenticationButtonsHasAccountNotLabel.translate}\t',
+                      '${_viewModel.isLoginState ? LocaleKeys.pagesAuthenticationButtonsHasAccountNotLabel.translate : LocaleKeys.pagesAuthenticationButtonsHasAccountHasLabel.translate}\t',
                 ),
                 TextSpan(
                   text: _viewModel.isLoginState
                       ? LocaleKeys
-                          .pagesAuthenticationButtonsHasAccountHasSublabel
+                          .pagesAuthenticationButtonsHasAccountNotSublabel
                           .translate
                       : LocaleKeys
-                          .pagesAuthenticationButtonsHasAccountNotSublabel
+                          .pagesAuthenticationButtonsHasAccountHasSublabel
                           .translate,
                   style: const TextStyle().copyWith(
                     fontWeight: FontWeight.w600,

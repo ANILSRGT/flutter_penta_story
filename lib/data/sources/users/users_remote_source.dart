@@ -17,6 +17,32 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
   @override
   Future<ResponseModel<UserModel>> createUser(UsersCreateParams params) async {
     try {
+      final emailCheckSnap = await _firebaseFirestore
+          .collection(FirestorePaths.users)
+          .where(UserModel.emailKey, isEqualTo: params.user.email)
+          .limit(1)
+          .get();
+
+      if (emailCheckSnap.docs.isNotEmpty) {
+        return const ResponseModelSuccessNegative(
+          data: null,
+          message: 'User already exists',
+        );
+      }
+
+      final usernameCheckSnap = await _firebaseFirestore
+          .collection(FirestorePaths.users)
+          .where(UserModel.usernameKey, isEqualTo: params.user.username)
+          .limit(1)
+          .get();
+
+      if (usernameCheckSnap.docs.isNotEmpty) {
+        return const ResponseModelSuccessNegative(
+          data: null,
+          message: 'Username already exists',
+        );
+      }
+
       await _firebaseFirestore
           .collection(FirestorePaths.users)
           .doc(params.user.id)
@@ -44,11 +70,9 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
           .get();
       final data = userDoc.data();
       if (data == null) {
-        return const ResponseModelFail(
-          error: ErrorModel(
-            message: 'User not found',
-            throwMessage: 'Users/GetUserById : User not found',
-          ),
+        return const ResponseModelSuccessNegative(
+          data: null,
+          message: 'User not found',
         );
       }
 

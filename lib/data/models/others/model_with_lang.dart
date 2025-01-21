@@ -1,7 +1,7 @@
 import 'package:penta_story/core/configs/enums/app_localiaztions_enum.dart';
 
 class ModelWithLang<T> {
-  ModelWithLang({
+  const ModelWithLang({
     required this.data,
   });
 
@@ -16,5 +16,14 @@ class ModelWithLang<T> {
     );
   }
 
-  Map<AppLocaliaztionsEnum, T> data;
+  final Map<AppLocaliaztionsEnum, T> data;
+
+  Map<String, T> toJson() {
+    return data.map(
+      (key, value) => MapEntry(
+        key.localeString,
+        value,
+      ),
+    );
+  }
 }

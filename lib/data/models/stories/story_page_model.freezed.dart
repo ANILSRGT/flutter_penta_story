@@ -132,13 +132,14 @@ class __$$StoryPageModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StoryPageModelImpl implements _StoryPageModel {
+class _$StoryPageModelImpl extends _StoryPageModel {
   const _$StoryPageModelImpl(
       {required this.id,
       required this.index,
       required this.image,
       required final List<StoryPagePartModel> parts})
-      : _parts = parts;
+      : _parts = parts,
+        super._();
 
   @override
   final String id;
@@ -184,12 +185,13 @@ class _$StoryPageModelImpl implements _StoryPageModel {
           this, _$identity);
 }
 
-abstract class _StoryPageModel implements StoryPageModel {
+abstract class _StoryPageModel extends StoryPageModel {
   const factory _StoryPageModel(
       {required final String id,
       required final int index,
       required final String image,
       required final List<StoryPagePartModel> parts}) = _$StoryPageModelImpl;
+  const _StoryPageModel._() : super._();
 
   @override
   String get id;

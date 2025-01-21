@@ -14,18 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-StoryPagePartModel _$StoryPagePartModelFromJson(Map<String, dynamic> json) {
-  return _StoryPagePartModel.fromJson(json);
-}
-
 /// @nodoc
 mixin _$StoryPagePartModel {
   String get id => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
   ModelWithLang<String> get content => throw _privateConstructorUsedError;
-
-  /// Serializes this StoryPagePartModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of StoryPagePartModel
   /// with the given fields replaced by the non-null parameter values.
@@ -125,13 +118,11 @@ class __$$StoryPagePartModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$StoryPagePartModelImpl implements _StoryPagePartModel {
-  const _$StoryPagePartModelImpl(
-      {required this.id, required this.index, required this.content});
 
-  factory _$StoryPagePartModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StoryPagePartModelImplFromJson(json);
+class _$StoryPagePartModelImpl extends _StoryPagePartModel {
+  const _$StoryPagePartModelImpl(
+      {required this.id, required this.index, required this.content})
+      : super._();
 
   @override
   final String id;
@@ -155,7 +146,6 @@ class _$StoryPagePartModelImpl implements _StoryPagePartModel {
             (identical(other.content, content) || other.content == content));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, index, content);
 
@@ -167,23 +157,14 @@ class _$StoryPagePartModelImpl implements _StoryPagePartModel {
   _$$StoryPagePartModelImplCopyWith<_$StoryPagePartModelImpl> get copyWith =>
       __$$StoryPagePartModelImplCopyWithImpl<_$StoryPagePartModelImpl>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StoryPagePartModelImplToJson(
-      this,
-    );
-  }
 }
 
-abstract class _StoryPagePartModel implements StoryPagePartModel {
+abstract class _StoryPagePartModel extends StoryPagePartModel {
   const factory _StoryPagePartModel(
       {required final String id,
       required final int index,
       required final ModelWithLang<String> content}) = _$StoryPagePartModelImpl;
-
-  factory _StoryPagePartModel.fromJson(Map<String, dynamic> json) =
-      _$StoryPagePartModelImpl.fromJson;
+  const _StoryPagePartModel._() : super._();
 
   @override
   String get id;

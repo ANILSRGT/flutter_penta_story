@@ -34,9 +34,50 @@ mixin _AuthProfileGeneratorPageViewMixin
     if (image != null) _viewModel.profileImage = image;
   }
 
-  void _onContinue() {
-    // TODO: save profile
+  Future<void> _onContinue() async {
+    if (_formKey.currentState?.validate() == false) {
+      showToast('Please fill all fields correctly');
+      return;
+    }
 
-    context.router.replaceAll([const HomeRoute()]);
+    final username = _usernameController.text;
+    final firstName = _firstNameController.text;
+    final lastName = _lastNameController.text;
+    final bio = _bioController.text;
+
+    await context.showLoadingDialog(
+      future: () async {
+        final authUser = FirebaseAuth.instance.currentUser;
+        if (authUser == null || authUser.email == null) return null;
+        return Injection.I.read<UsersCreateUsecase>().execute(
+              UsersCreateParams(
+                user: UserModel(
+                  id: authUser.uid,
+                  username: username,
+                  email: authUser.email!,
+                  firstName: firstName,
+                  lastName: lastName,
+                  bio: bio,
+                  image: _viewModel.profileImage,
+                ),
+              ),
+            );
+      },
+      callback: (result) async {
+        if (result == null) {
+          showToast('Please login first');
+          return;
+        }
+
+        await result.when<Future<void>>(
+          onSuccess: (user) async {
+            context.read<UserNotifier>().setUser(user);
+            return context.router.replaceAll([const HomeRoute()]);
+          },
+          onSuccessNegative: (_, message) async => showToast(message),
+          onFail: (fail) async => showToast(fail.error.message),
+        );
+      },
+    );
   }
 }

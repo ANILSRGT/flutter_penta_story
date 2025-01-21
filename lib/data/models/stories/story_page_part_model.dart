@@ -3,13 +3,15 @@ import 'package:penta_story/data/models/others/model_with_lang.dart';
 
 part 'story_page_part_model.freezed.dart';
 
-@freezed
+@Freezed(toJson: false, fromJson: false)
 abstract class StoryPagePartModel with _$StoryPagePartModel {
   const factory StoryPagePartModel({
     required String id,
     required int index,
     required ModelWithLang<String> content,
   }) = _StoryPagePartModel;
+
+  const StoryPagePartModel._();
 
   factory StoryPagePartModel.fromJson({
     required String id,

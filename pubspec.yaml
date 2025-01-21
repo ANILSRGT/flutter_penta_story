@@ -23,6 +23,10 @@ dependencies:
   mobx: ^2.5.0
   get_it: ^8.0.3
 
+  # Cache
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
   # Firebase
   firebase_core: ^3.10.0
   firebase_auth: ^5.4.0
@@ -30,7 +34,6 @@ dependencies:
 
   # Serialization
   freezed_annotation: ^2.4.4
-  json_annotation: ^4.9.0
 
   # Routing
   auto_route: ^9.3.0+1
@@ -64,6 +67,9 @@ dev_dependencies:
 
   # Routing
   auto_route_generator: ^9.0.0
+
+  # Cache
+  hive_generator: ^2.0.1
 
 dependency_overrides:
   freezed: ^2.5.7

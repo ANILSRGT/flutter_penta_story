@@ -243,7 +243,7 @@ class __$$StoryModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StoryModelImpl implements _StoryModel {
+class _$StoryModelImpl extends _StoryModel {
   const _$StoryModelImpl(
       {required this.id,
       required this.title,
@@ -258,7 +258,8 @@ class _$StoryModelImpl implements _StoryModel {
       required final List<StoryChapterModel> chapters,
       this.deletedAt = null})
       : _languages = languages,
-        _chapters = chapters;
+        _chapters = chapters,
+        super._();
 
   @override
   final String id;
@@ -352,7 +353,7 @@ class _$StoryModelImpl implements _StoryModel {
       __$$StoryModelImplCopyWithImpl<_$StoryModelImpl>(this, _$identity);
 }
 
-abstract class _StoryModel implements StoryModel {
+abstract class _StoryModel extends StoryModel {
   const factory _StoryModel(
       {required final String id,
       required final ModelWithLang<String> title,
@@ -366,6 +367,7 @@ abstract class _StoryModel implements StoryModel {
       required final DateTime updatedAt,
       required final List<StoryChapterModel> chapters,
       final DateTime? deletedAt}) = _$StoryModelImpl;
+  const _StoryModel._() : super._();
 
   @override
   String get id;

@@ -151,14 +151,15 @@ class __$$StoryChapterModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StoryChapterModelImpl implements _StoryChapterModel {
+class _$StoryChapterModelImpl extends _StoryChapterModel {
   const _$StoryChapterModelImpl(
       {required this.id,
       required this.index,
       required this.title,
       required this.description,
       required final List<StoryPageModel> pages})
-      : _pages = pages;
+      : _pages = pages,
+        super._();
 
   @override
   final String id;
@@ -208,13 +209,14 @@ class _$StoryChapterModelImpl implements _StoryChapterModel {
           this, _$identity);
 }
 
-abstract class _StoryChapterModel implements StoryChapterModel {
+abstract class _StoryChapterModel extends StoryChapterModel {
   const factory _StoryChapterModel(
       {required final String id,
       required final int index,
       required final ModelWithLang<String> title,
       required final ModelWithLang<String> description,
       required final List<StoryPageModel> pages}) = _$StoryChapterModelImpl;
+  const _StoryChapterModel._() : super._();
 
   @override
   String get id;

@@ -8,6 +8,7 @@ import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/presentation/pages/auth/onboarding/widgets/onboarding_page_item.dart';
 
 part 'onboarding_page_view.dart';
+part 'onboarding_page_view_mixin.dart';
 
 @RoutePage()
 class OnboardingPage extends StatelessWidget {

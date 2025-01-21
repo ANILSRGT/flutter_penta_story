@@ -11,15 +11,15 @@ final class AuthGuard extends AutoRouteGuard {
     final authUser = FirebaseAuth.instance.currentUser;
 
     if (authUser == null &&
-        router.current.name != AuthenticationRoute.page.name) {
-      resolver.redirect(const AuthenticationRoute());
+        resolver.route.name != AuthenticationRoute.page.name) {
+      router.replaceAll([const AuthenticationRoute()]);
       return;
     }
 
     if (authUser != null &&
         !authUser.emailVerified &&
-        router.current.name != EmailVerificationRoute.page.name) {
-      resolver.redirect(const EmailVerificationRoute());
+        resolver.route.name != EmailVerificationRoute.page.name) {
+      router.replaceAll([const EmailVerificationRoute()]);
       return;
     }
 
@@ -29,16 +29,16 @@ final class AuthGuard extends AutoRouteGuard {
     if (authUser != null &&
         authUser.emailVerified &&
         user == null &&
-        router.current.name != AuthProfileGeneratorRoute.page.name) {
-      resolver.redirect(const AuthProfileGeneratorRoute());
+        resolver.route.name != AuthProfileGeneratorRoute.page.name) {
+      router.replaceAll([const AuthProfileGeneratorRoute()]);
       return;
     }
 
     if (authUser != null &&
         authUser.emailVerified &&
         user != null &&
-        router.current.name == AuthProfileGeneratorRoute.page.name) {
-      resolver.redirect(const HomeRoute());
+        resolver.route.name == AuthProfileGeneratorRoute.page.name) {
+      router.replaceAll([const HomeRoute()]);
       return;
     }
 

@@ -52,9 +52,20 @@ class _ForgotPasswordPageViewState extends State<_ForgotPasswordPageView>
                     textAlign: TextAlign.center,
                     style: context.ext.theme.textTheme.bodyLarge,
                   ),
+                  context.ext.sizedBox.height.xl3,
+                  AppTextFormField(
+                    controller: _emailController,
+                    hintText: 'Email',
+                    focusNode: _emailFocusNode,
+                    nextFocusNode: _sendEmailButtonFocusNode,
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.done,
+                    validator: (p0) => p0.validateEmail,
+                  ),
                   context.ext.sizedBox.height.xl6,
                   AppElevatedButton(
                     onPressed: _sendEmail,
+                    focusNode: _sendEmailButtonFocusNode,
                     child: Text(
                       LocaleKeys.pagesForgotPasswordSendButtonLabel.translate,
                     ),

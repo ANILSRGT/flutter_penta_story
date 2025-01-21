@@ -26,7 +26,6 @@ mixin _AuthenticationPageViewMixin on State<_AuthenticationPageView> {
 
   Future<void> _authButton() async {
     final isLogin = _viewModel.isLoginState;
-    var success = false;
 
     final isValidate = _formKey.currentState?.validate() ?? false;
     if (!isValidate) {
@@ -35,52 +34,81 @@ mixin _AuthenticationPageViewMixin on State<_AuthenticationPageView> {
     }
 
     if (isLogin) {
-      success = await _login();
+      return _login();
     } else {
-      success = await _register();
+      return _register();
     }
-
-    if (!success && !mounted) return;
-    unawaited(context.router.replaceAll([const EmailVerificationRoute()]));
   }
 
-  Future<bool> _login() async {
+  Future<void> _checkUserAndNavigate(String userId) async {
+    final result = await Injection.I
+        .read<UsersGetUserByIdUsecase>()
+        .execute(UsersGetUserByIdParams(id: userId));
+
+    return result.when(
+      onSuccess: (data) async {
+        if (!mounted) return;
+        context.read<UserNotifier>().setUser(data);
+        await context.router.replaceAll([const HomeRoute()]);
+      },
+      onSuccessNegative: (data, message) async {
+        if (!mounted) return;
+        await context.router.replaceAll([const AuthProfileGeneratorRoute()]);
+      },
+      onFail: (fail) => showToast(fail.error.message),
+    );
+  }
+
+  Future<void> _login() async {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
-    final result =
-        await Injection.I.read<AuthSingInWithEmailAndPasswordUsecase>().execute(
+    await context.showLoadingDialog(
+      future: () async {
+        return Injection.I
+            .read<AuthSingInWithEmailAndPasswordUsecase>()
+            .execute(
               AuthSignInWithEmailAndPasswordParams(
                 email: email,
                 password: password,
               ),
             );
-
-    if (result.isFail) {
-      showToast(result.asFail.error.message);
-      return false;
-    }
-
-    return true;
+      },
+      callback: (result) {
+        result.when(
+          onSuccess: (data) async => _checkUserAndNavigate(data.uid),
+          onSuccessNegative: (data, message) => showToast(message),
+          onFail: (fail) => showToast(fail.error.message),
+        );
+      },
+    );
   }
 
-  Future<bool> _register() async {
+  Future<void> _register() async {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
-    final result =
-        await Injection.I.read<AuthSingUpWithEmailAndPasswordUsecase>().execute(
+    await context.showLoadingDialog(
+      future: () async {
+        return Injection.I
+            .read<AuthSingUpWithEmailAndPasswordUsecase>()
+            .execute(
               AuthSignUpWithEmailAndPasswordParams(
                 email: email,
                 password: password,
               ),
             );
-
-    if (result.isFail) {
-      showToast(result.asFail.error.message);
-      return false;
-    }
-
-    return true;
+      },
+      callback: (result) {
+        result.when(
+          onSuccess: (data) async {
+            if (!mounted) return;
+            return context.router.replaceAll([const EmailVerificationRoute()]);
+          },
+          onSuccessNegative: (data, message) => showToast(message),
+          onFail: (fail) => showToast(fail.error.message),
+        );
+      },
+    );
   }
 }

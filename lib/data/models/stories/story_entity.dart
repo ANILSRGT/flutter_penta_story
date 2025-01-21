@@ -6,7 +6,7 @@ import 'package:penta_story/data/models/stories/story_chapter_model.dart';
 
 part 'story_entity.freezed.dart';
 
-@freezed
+@Freezed(toJson: false, fromJson: false)
 abstract class StoryModel with _$StoryModel {
   const factory StoryModel({
     required String id,
@@ -22,6 +22,8 @@ abstract class StoryModel with _$StoryModel {
     required List<StoryChapterModel> chapters,
     @Default(null) DateTime? deletedAt,
   }) = _StoryModel;
+
+  const StoryModel._();
 
   factory StoryModel.fromJson({
     required String id,
