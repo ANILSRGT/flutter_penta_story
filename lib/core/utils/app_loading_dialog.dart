@@ -29,3 +29,23 @@ final class AppLoadingDialog {
     );
   }
 }
+
+extension AppLoadingDialogContextX on BuildContext {
+  Future<void> showLoadingDialog<T>({
+    required Future<T> Function() future,
+    required FutureOr<void> Function(T value) callback,
+    LoadingCallbackDialogCloseTypes closeType =
+        LoadingCallbackDialogCloseTypes.beforeCallback,
+    bool cancelable = false,
+    FutureOr<void> Function()? cancelableCallback,
+  }) async {
+    return AppLoadingDialog.showLoadingDialog(
+      context: this,
+      future: future,
+      callback: callback,
+      closeType: closeType,
+      cancelable: cancelable,
+      cancelableCallback: cancelableCallback,
+    );
+  }
+}

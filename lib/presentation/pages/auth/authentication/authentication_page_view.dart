@@ -81,6 +81,7 @@ class _AuthenticationPageViewState extends State<_AuthenticationPageView>
 
   Form _buildForm(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
           _buildEmailField(context),

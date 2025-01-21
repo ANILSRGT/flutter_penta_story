@@ -1,150 +1,150 @@
 {
-    "pages": {
-        "onboarding": {
-            "items": {
-                "1": {
-                    "title": "Welcome to Your Story Universe",
-                    "subtitle": "Read or Listen—Your Choice",
-                    "description": "Whether you prefer to read or listen, we’ve got you covered. Dive into captivating stories the way you like, anytime, anywhere."
-                },
-                "2": {
-                    "title": "Effortless and Immersive",
-                    "subtitle": "Stories That Fit Your Life",
-                    "description": "Switch seamlessly between reading and listening. Whether you're at home, commuting, or relaxing, your favorite stories are always with you."
-                },
-                "3": {
-                    "title": "Ready to Begin?",
-                    "subtitle": "Start Your Story Journey Today",
-                    "description": "Pick your first story and choose to read or listen—immerse yourself in a world of imagination."
-                }
-            },
-            "itemWidget": {
-                "backButton": {
-                    "label": "Back"
-                },
-                "nextButton": {
-                    "label": "Next"
-                },
-                "skipButton": {
-                    "label": "Skip"
-                },
-                "completedButton": {
-                    "label": "Read / Listen"
-                }
-            }
+  "pages": {
+    "onboarding": {
+      "items": {
+        "1": {
+          "title": "Welcome to Your Story Universe",
+          "subtitle": "Read or Listen—Your Choice",
+          "description": "Whether you prefer to read or listen, we’ve got you covered. Dive into captivating stories the way you like, anytime, anywhere."
         },
-        "emailVerification": {
-            "title": "Verify Your Email",
-            "description": "We have sent an email to your email address. Please verify your email address to continue.",
-            "resendButton": {
-                "label": "Resend Email"
-            }
+        "2": {
+          "title": "Effortless and Immersive",
+          "subtitle": "Stories That Fit Your Life",
+          "description": "Switch seamlessly between reading and listening. Whether you're at home, commuting, or relaxing, your favorite stories are always with you."
+        },
+        "3": {
+          "title": "Ready to Begin?",
+          "subtitle": "Start Your Story Journey Today",
+          "description": "Pick your first story and choose to read or listen—immerse yourself in a world of imagination."
+        }
+      },
+      "itemWidget": {
+        "backButton": {
+          "label": "Back"
+        },
+        "nextButton": {
+          "label": "Next"
+        },
+        "skipButton": {
+          "label": "Skip"
+        },
+        "completedButton": {
+          "label": "Read / Listen"
+        }
+      }
+    },
+    "emailVerification": {
+      "title": "Verify Your Email",
+      "description": "We have sent an email to your email address. Please verify your email address to continue.",
+      "resendButton": {
+        "label": "Resend Email"
+      }
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "description": "Enter your email address and we will send you a link to reset your password.",
+      "sendButton": {
+        "label": "Send Email"
+      }
+    },
+    "authentication": {
+      "fields": {
+        "email": {
+          "hint": "Email"
+        },
+        "password": {
+          "hint": "Password"
+        }
+      },
+      "buttons": {
+        "signIn": {
+          "label": "Sign In"
+        },
+        "signUp": {
+          "label": "Sign Up"
         },
         "forgotPassword": {
-            "title": "Forgot Password",
-            "description": "Enter your email address and we will send you a link to reset your password.",
-            "sendButton": {
-                "label": "Send Email"
-            }
+          "label": "Forgot Password?"
         },
-        "authentication": {
-            "fields": {
-                "email": {
-                    "hint": "Email"
-                },
-                "password": {
-                    "hint": "Password"
-                }
-            },
-            "buttons": {
-                "signIn": {
-                    "label": "Sign In"
-                },
-                "signUp": {
-                    "label": "Sign Up"
-                },
-                "forgotPassword": {
-                    "label": "Forgot Password?"
-                },
-                "hasAccount": {
-                    "has": {
-                        "label": "Already have an account?",
-                        "sublabel": "Sign In"
-                    },
-                    "not": {
-                        "label": "Don't have an account?",
-                        "sublabel": "Sign Up"
-                    }
-                }
-            }
-        },
-        "authProfileGenerator": {
-            "fields": {
-                "username": {
-                    "hint": "Username"
-                },
-                "firstName": {
-                    "hint": "First Name"
-                },
-                "lastName": {
-                    "hint": "Last Name"
-                },
-                "bio": {
-                    "hint": "Bio (Opt.)"
-                }
-            },
-            "buttons": {
-                "continue": {
-                    "label": "Continue"
-                }
-            }
-        },
-        "home": {
-            "newStoriesTitle": "New Stories",
-            "popularStoriesTitle": "Popular Stories"
-        },
-        "story": {
-            "summary": {
-                "title": "Summary"
-            },
-            "readButton": {
-                "label": "Read"
-            },
-            "listenButton": {
-                "label": "Listen"
-            }
+        "hasAccount": {
+          "has": {
+            "label": "Already have an account?",
+            "sublabel": "Sign In"
+          },
+          "not": {
+            "label": "Don't have an account?",
+            "sublabel": "Sign Up"
+          }
         }
+      }
     },
-    "widgets": {
-        "dropdown": {
-            "appLangDropdown": {
-                "field": {
-                    "label": "Language"
-                }
-            }
+    "authProfileGenerator": {
+      "fields": {
+        "username": {
+          "hint": "Username"
         },
-        "story": {
-            "storyGridCard": {
-                "pagesCount": {
-                    "singular": "1 Page",
-                    "plural": "{} Pages"
-                }
-            }
+        "firstName": {
+          "hint": "First Name"
+        },
+        "lastName": {
+          "hint": "Last Name"
+        },
+        "bio": {
+          "hint": "Bio (Opt.)"
         }
+      },
+      "buttons": {
+        "continue": {
+          "label": "Continue"
+        }
+      }
     },
-    "validations": {
-        "required": {
-            "email": "Email is required",
-            "password": "Password is required",
-            "username": "Username is required",
-            "firstName": "First name is required",
-            "lastName": "Last name is required"
-        },
-        "length": {
-            "password": "Password must be at least {} characters long"
-        },
-        "invalid": {
-            "email": "Email is invalid"
-        }
+    "home": {
+      "newStoriesTitle": "New Stories",
+      "popularStoriesTitle": "Popular Stories"
+    },
+    "story": {
+      "summary": {
+        "title": "Summary"
+      },
+      "readButton": {
+        "label": "Read"
+      },
+      "listenButton": {
+        "label": "Listen"
+      }
     }
+  },
+  "widgets": {
+    "dropdown": {
+      "appLangDropdown": {
+        "field": {
+          "label": "Language"
+        }
+      }
+    },
+    "story": {
+      "storyGridCard": {
+        "pagesCount": {
+          "singular": "1 Page",
+          "plural": "{} Pages"
+        }
+      }
+    }
+  },
+  "validations": {
+    "required": {
+      "email": "Email is required",
+      "password": "Password is required",
+      "username": "Username is required",
+      "firstName": "First name is required",
+      "lastName": "Last name is required"
+    },
+    "length": {
+      "password": "Password must be at least {} characters long"
+    },
+    "invalid": {
+      "email": "Email is invalid"
+    }
+  }
 }

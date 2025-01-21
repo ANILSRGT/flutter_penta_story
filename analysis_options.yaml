@@ -8,6 +8,7 @@ analyzer:
     invalid_annotation_target: ignore
     unused_field: ignore
     lines_longer_than_80_chars: ignore
+    unused_local_variable: ignore
 
 linter:
   rules:

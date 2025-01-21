@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:penta_story/core/configs/router/guards/auth_guard.dart';
 import 'package:penta_story/presentation/pages/auth/auth_profile_generator/auth_profile_generator_page.dart';
 import 'package:penta_story/presentation/pages/auth/authentication/authentication_page.dart';
 import 'package:penta_story/presentation/pages/auth/email_verification/email_verification_page.dart';
@@ -27,28 +28,35 @@ class AppRouter extends RootStackRouter {
           page: OnboardingRoute.page,
         ),
         AutoRoute(
-          page: AuthenticationRoute.page,
-        ),
-        AutoRoute(
           page: EmailVerificationRoute.page,
+          guards: [AuthGuard()],
         ),
         AutoRoute(
           page: ForgotPasswordRoute.page,
         ),
         AutoRoute(
           page: AuthProfileGeneratorRoute.page,
+          guards: [AuthGuard()],
+        ),
+        AutoRoute(
+          page: AuthenticationRoute.page,
+          guards: [AuthGuard()],
         ),
         AutoRoute(
           page: HomeRoute.page,
+          guards: [AuthGuard()],
         ),
         AutoRoute(
           page: StoryDetailsRoute.page,
+          guards: [AuthGuard()],
         ),
         AutoRoute(
           page: StoryBookRoute.page,
+          guards: [AuthGuard()],
         ),
         AutoRoute(
           page: ProfileRoute.page,
+          guards: [AuthGuard()],
         ),
       ];
 

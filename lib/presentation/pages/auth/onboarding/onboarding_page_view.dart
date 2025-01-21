@@ -34,8 +34,6 @@ class _OnboardingPageViewState extends State<_OnboardingPageView> {
   }
 
   void _onComplete() {
-    // TODO: Check Auth and Navigate
-
     context.router.replaceAll([const AuthenticationRoute()]);
   }
 

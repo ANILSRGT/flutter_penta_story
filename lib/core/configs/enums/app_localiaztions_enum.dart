@@ -22,6 +22,7 @@ enum AppLocaliaztionsEnum {
   final String countryCode;
   final String languageCode;
 
+  String get localeString => '${languageCode}_$countryCode';
   Locale get locale => Locale(languageCode, countryCode);
 
   static const translationsJsonAssetsFolder = 'assets/translations';
@@ -31,6 +32,13 @@ enum AppLocaliaztionsEnum {
 
   String get flagRoundedSvgAssetPath =>
       'assets/vectors/flags/${languageCode}_${countryCode}_rounded.svg';
+
+  static AppLocaliaztionsEnum fromLocaleString(String localeString) {
+    return AppLocaliaztionsEnum.values.firstWhere(
+      (e) => e.localeString == localeString,
+      orElse: () => AppLocaliaztionsEnum.enUS,
+    );
+  }
 
   static AppLocaliaztionsEnum fromLocale(Locale locale) {
     return AppLocaliaztionsEnum.values.firstWhere(
