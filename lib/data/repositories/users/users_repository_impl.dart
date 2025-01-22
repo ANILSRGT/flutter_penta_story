@@ -1,4 +1,5 @@
 import 'package:penta_core/penta_core.dart';
+import 'package:penta_story/data/models/users/params/users_change_profile_image_params.dart';
 import 'package:penta_story/data/models/users/params/users_create_params.dart';
 import 'package:penta_story/data/models/users/params/users_get_user_by_id_params.dart';
 import 'package:penta_story/data/models/users/user_model.dart';
@@ -22,5 +23,12 @@ final class UsersRepositoryImpl implements UsersRepository {
   @override
   Future<ResponseModel<List<UserModel>>> getUsers() async {
     return Injection.I.read<UsersRemoteSource>().getUsers();
+  }
+
+  @override
+  Future<ResponseModel<void>> changeProfileImage(
+    UsersChangeProfileImageParams params,
+  ) async {
+    return Injection.I.read<UsersRemoteSource>().changeProfileImage(params);
   }
 }

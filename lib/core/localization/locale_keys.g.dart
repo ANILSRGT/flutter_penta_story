@@ -82,4 +82,6 @@ final class LocaleKeys {
 	static String get dataSourcesUsersGetUserByIdErrorsUserNotFound => 'dataSources.users.getUserById.errors.userNotFound';
 	static String get dataSourcesUsersGetUserByIdErrorsAnotherError => 'dataSources.users.getUserById.errors.anotherError';
 	static String get dataSourcesUsersGetUsersErrorsAnotherError => 'dataSources.users.getUsers.errors.anotherError';
+	static String get dataSourcesUsersChangeProfileImageErrorsUserNotFound => 'dataSources.users.changeProfileImage.errors.userNotFound';
+	static String get dataSourcesUsersChangeProfileImageErrorsAnotherError => 'dataSources.users.changeProfileImage.errors.anotherError';
 }

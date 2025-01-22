@@ -261,6 +261,12 @@
         "errors": {
           "anotherError": "Kullanıcılar yüklenirken bir hata oluştu"
         }
+      },
+      "changeProfileImage": {
+        "errors": {
+          "userNotFound": "Kullanıcı bulunamadı",
+          "anotherError": "Profil resmi değiştirilirken bir hata oluştu"
+        }
       }
     }
   }

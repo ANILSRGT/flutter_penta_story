@@ -27,7 +27,7 @@ class _HomePageViewState extends State<_HomePageView> with _HomePageViewMixin {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ProfileAvatarWidget(
-                        imageData: null,
+                        imageData: context.watch<UserNotifier>().user?.image,
                         onTap: _onProfileAvatarTap,
                       ),
                       AppLangDropdown.circle(

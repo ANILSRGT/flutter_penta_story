@@ -20,6 +20,7 @@ import 'package:penta_story/domain/usecases/stories/stories_get_all_usecase.dart
 import 'package:penta_story/domain/usecases/stories/stories_get_by_id_usecase.dart';
 import 'package:penta_story/domain/usecases/stories/stories_get_new_all_usecase.dart';
 import 'package:penta_story/domain/usecases/stories/stories_get_popular_all_usecase.dart';
+import 'package:penta_story/domain/usecases/users/users_change_profile_image_usecase.dart';
 import 'package:penta_story/domain/usecases/users/users_create_usecase.dart';
 import 'package:penta_story/domain/usecases/users/users_get_all_usecase.dart';
 import 'package:penta_story/domain/usecases/users/users_get_user_by_id_usecase.dart';
@@ -73,7 +74,10 @@ final class Injection {
       //*** Users ***
       ..registerSingleton<UsersCreateUsecase>(UsersCreateUsecase())
       ..registerSingleton<UsersGetAllUsecase>(UsersGetAllUsecase())
-      ..registerSingleton<UsersGetUserByIdUsecase>(UsersGetUserByIdUsecase());
+      ..registerSingleton<UsersGetUserByIdUsecase>(UsersGetUserByIdUsecase())
+      ..registerSingleton<UsersChangeProfileImageUsecase>(
+        UsersChangeProfileImageUsecase(),
+      );
   }
 
   T read<T extends Object>() => _sl.get<T>();

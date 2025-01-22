@@ -16,12 +16,26 @@ mixin _$HomePageViewModel on _HomePageViewModelBase, Store {
           Computed<List<StoryModel>>(() => super.newStories,
               name: '_HomePageViewModelBase.newStories'))
       .value;
+  Computed<bool>? _$newStoriesLoadingComputed;
+
+  @override
+  bool get newStoriesLoading => (_$newStoriesLoadingComputed ??= Computed<bool>(
+          () => super.newStoriesLoading,
+          name: '_HomePageViewModelBase.newStoriesLoading'))
+      .value;
   Computed<List<StoryModel>>? _$popularStoriesComputed;
 
   @override
   List<StoryModel> get popularStories => (_$popularStoriesComputed ??=
           Computed<List<StoryModel>>(() => super.popularStories,
               name: '_HomePageViewModelBase.popularStories'))
+      .value;
+  Computed<bool>? _$popularStoriesLoadingComputed;
+
+  @override
+  bool get popularStoriesLoading => (_$popularStoriesLoadingComputed ??=
+          Computed<bool>(() => super.popularStoriesLoading,
+              name: '_HomePageViewModelBase.popularStoriesLoading'))
       .value;
 
   late final _$_newStoriesAtom =
@@ -109,7 +123,9 @@ mixin _$HomePageViewModel on _HomePageViewModelBase, Store {
   String toString() {
     return '''
 newStories: ${newStories},
-popularStories: ${popularStories}
+newStoriesLoading: ${newStoriesLoading},
+popularStories: ${popularStories},
+popularStoriesLoading: ${popularStoriesLoading}
     ''';
   }
 }

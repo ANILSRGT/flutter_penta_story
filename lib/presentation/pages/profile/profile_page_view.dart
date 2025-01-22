@@ -39,7 +39,8 @@ class _ProfilePageViewState extends State<_ProfilePageView>
                       children: [
                         Observer(
                           builder: (_) => ProfileAvatarWidget(
-                            imageData: _viewModel.profileImage,
+                            imageData:
+                                context.watch<UserNotifier>().user?.image,
                             radius: context.ext.screen.byOrientation(
                               portrait: context.ext.screen.width * 0.35,
                               landscape: context.ext.screen.height * 0.3,
@@ -63,14 +64,14 @@ class _ProfilePageViewState extends State<_ProfilePageView>
                 ),
                 context.ext.sizedBox.height.xl3,
                 Text(
-                  context.read<UserNotifier>().user?.fullName ?? '',
+                  context.watch<UserNotifier>().user?.fullName ?? '',
                   textAlign: TextAlign.center,
                   style: context.ext.theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
-                  '@${context.read<UserNotifier>().user?.username}',
+                  '@${context.watch<UserNotifier>().user?.username}',
                   textAlign: TextAlign.center,
                   style: context.ext.theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
@@ -78,7 +79,7 @@ class _ProfilePageViewState extends State<_ProfilePageView>
                 ),
                 context.ext.sizedBox.height.md,
                 Visibility(
-                  visible: context.read<UserNotifier>().user?.bio.isNotEmpty ??
+                  visible: context.watch<UserNotifier>().user?.bio.isNotEmpty ??
                       false,
                   child: Card(
                     color: context.appThemeExt.appColors.white
@@ -90,7 +91,7 @@ class _ProfilePageViewState extends State<_ProfilePageView>
                     child: Padding(
                       padding: context.ext.padding.all.md,
                       child: Text(
-                        context.read<UserNotifier>().user?.bio ?? '',
+                        context.watch<UserNotifier>().user?.bio ?? '',
                         style: context.ext.theme.textTheme.bodyLarge?.copyWith(
                           color: context.appThemeExt.appColors.white
                               .byBrightness(context.ext.theme.isDark)
