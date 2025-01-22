@@ -17,6 +17,7 @@ abstract class StoryModel with _$StoryModel {
     required String image,
     required int year,
     required List<AppLocaliaztionsEnum> languages,
+    required List<String> savedBy,
     required DateTime createdAt,
     required DateTime updatedAt,
     required List<StoryChapterModel> chapters,
@@ -42,16 +43,17 @@ abstract class StoryModel with _$StoryModel {
       languages: (json[languagesKey] as List)
           .map((e) => AppLocaliaztionsEnum.fromLocaleString(e as String))
           .toList(),
+      savedBy: (json[savedByKey] as List).map((e) => e as String).toList(),
       createdAt: TimestampConverter.convertToDateTimeLocal(
-        json['createdAt'] as int,
+        json[createdAtKey] as int,
       ),
       updatedAt: TimestampConverter.convertToDateTimeLocal(
-        json['updatedAt'] as int,
+        json[updatedAtKey] as int,
       ),
-      deletedAt: json['deletedAt'] == null
+      deletedAt: json[deletedAtKey] == null
           ? null
           : TimestampConverter.convertToDateTimeLocal(
-              json['deletedAt'] as int,
+              json[deletedAtKey] as int,
             ),
       chapters: chapters,
     );
@@ -64,4 +66,8 @@ abstract class StoryModel with _$StoryModel {
   static const imageKey = 'image';
   static const yearKey = 'year';
   static const languagesKey = 'languages';
+  static const savedByKey = 'savedBy';
+  static const createdAtKey = 'createdAt';
+  static const updatedAtKey = 'updatedAt';
+  static const deletedAtKey = 'deletedAt';
 }

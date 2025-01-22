@@ -6,6 +6,7 @@ import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/data/models/users/params/users_create_params.dart';
 import 'package:penta_story/data/models/users/params/users_get_user_by_id_params.dart';
 import 'package:penta_story/data/models/users/user_model.dart';
+import 'package:penta_story/injection.dart';
 
 abstract class UsersRemoteSource {
   Future<ResponseModel<UserModel>> createUser(UsersCreateParams params);
@@ -14,12 +15,11 @@ abstract class UsersRemoteSource {
 }
 
 final class UsersRemoteSourceImpl implements UsersRemoteSource {
-  final _firebaseFirestore = FirebaseFirestore.instance;
-
   @override
   Future<ResponseModel<UserModel>> createUser(UsersCreateParams params) async {
     try {
-      final emailCheckSnap = await _firebaseFirestore
+      final emailCheckSnap = await Injection.I
+          .read<FirebaseFirestore>()
           .collection(FirestorePaths.users)
           .where(UserModel.emailKey, isEqualTo: params.user.email)
           .limit(1)
@@ -33,7 +33,8 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
         );
       }
 
-      final usernameCheckSnap = await _firebaseFirestore
+      final usernameCheckSnap = await Injection.I
+          .read<FirebaseFirestore>()
           .collection(FirestorePaths.users)
           .where(UserModel.usernameKey, isEqualTo: params.user.username)
           .limit(1)
@@ -47,7 +48,8 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
         );
       }
 
-      await _firebaseFirestore
+      await Injection.I
+          .read<FirebaseFirestore>()
           .collection(FirestorePaths.users)
           .doc(params.user.id)
           .set(params.user.toJson());
@@ -69,7 +71,8 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
     UsersGetUserByIdParams params,
   ) async {
     try {
-      final userDoc = await _firebaseFirestore
+      final userDoc = await Injection.I
+          .read<FirebaseFirestore>()
           .collection(FirestorePaths.users)
           .doc(params.id)
           .get();
@@ -102,8 +105,10 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
   @override
   Future<ResponseModel<List<UserModel>>> getUsers() async {
     try {
-      final usersSnapshot =
-          await _firebaseFirestore.collection(FirestorePaths.users).get();
+      final usersSnapshot = await Injection.I
+          .read<FirebaseFirestore>()
+          .collection(FirestorePaths.users)
+          .get();
       final users = usersSnapshot.docs
           .map((doc) => UserModel.fromJson(id: doc.id, json: doc.data()))
           .toList();

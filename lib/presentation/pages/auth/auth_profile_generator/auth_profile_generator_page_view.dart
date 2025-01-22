@@ -20,10 +20,7 @@ class __AuthProfileGeneratorPageViewState
           onChanged: (_) => setState(() {}),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(AppIcons.logout),
-          ),
+          LogoutButton.icon(),
         ],
       ),
       body: SafeArea(

@@ -17,4 +17,14 @@ final class StoriesRepositoryImpl implements StoriesRepository {
   ) async {
     return Injection.I.read<StoriesRemoteSource>().getStoryById(params);
   }
+
+  @override
+  Future<ResponseModel<List<StoryModel>>> getNewStories() async {
+    return Injection.I.read<StoriesRemoteSource>().getNewStories();
+  }
+
+  @override
+  Future<ResponseModel<List<StoryModel>>> getPopularStories() async {
+    return Injection.I.read<StoriesRemoteSource>().getPopularStories();
+  }
 }

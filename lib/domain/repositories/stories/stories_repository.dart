@@ -5,4 +5,6 @@ import 'package:penta_story/data/models/stories/story_entity.dart';
 abstract class StoriesRepository {
   Future<ResponseModel<List<StoryModel>>> getStories();
   Future<ResponseModel<StoryModel>> getStoryById(StoriesGetByIdParams params);
+  Future<ResponseModel<List<StoryModel>>> getNewStories();
+  Future<ResponseModel<List<StoryModel>>> getPopularStories();
 }

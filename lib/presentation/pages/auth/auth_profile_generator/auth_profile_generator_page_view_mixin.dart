@@ -50,7 +50,7 @@ mixin _AuthProfileGeneratorPageViewMixin
 
     await context.showLoadingDialog(
       future: () async {
-        final authUser = FirebaseAuth.instance.currentUser;
+        final authUser = Injection.I.read<FirebaseAuth>().currentUser;
         if (authUser == null || authUser.email == null) return null;
         return Injection.I.read<UsersCreateUsecase>().execute(
               UsersCreateParams(

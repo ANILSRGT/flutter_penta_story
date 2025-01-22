@@ -8,15 +8,16 @@ import 'package:penta_story/data/models/stories/story_chapter_model.dart';
 import 'package:penta_story/data/models/stories/story_entity.dart';
 import 'package:penta_story/data/models/stories/story_page_model.dart';
 import 'package:penta_story/data/models/stories/story_page_part_model.dart';
+import 'package:penta_story/injection.dart';
 
 abstract class StoriesRemoteSource {
   Future<ResponseModel<List<StoryModel>>> getStories();
   Future<ResponseModel<StoryModel>> getStoryById(StoriesGetByIdParams params);
+  Future<ResponseModel<List<StoryModel>>> getNewStories();
+  Future<ResponseModel<List<StoryModel>>> getPopularStories();
 }
 
 final class StoriesRemoteSourceImpl implements StoriesRemoteSource {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
   Future<ResponseModel<StoryModel>> _storyFromDoc(
     DocumentSnapshot<Map<String, dynamic>> storyDoc,
   ) async {
@@ -97,8 +98,10 @@ final class StoriesRemoteSourceImpl implements StoriesRemoteSource {
   @override
   Future<ResponseModel<List<StoryModel>>> getStories() async {
     try {
-      final storiesSnap =
-          await _firestore.collection(FirestorePaths.stories).get();
+      final storiesSnap = await Injection.I
+          .read<FirebaseFirestore>()
+          .collection(FirestorePaths.stories)
+          .get();
       final storiesFuture = storiesSnap.docs.map((storyDoc) async {
         return _storyFromDoc(storyDoc);
       }).toList();
@@ -125,7 +128,8 @@ final class StoriesRemoteSourceImpl implements StoriesRemoteSource {
     StoriesGetByIdParams params,
   ) async {
     try {
-      final storyDoc = await _firestore
+      final storyDoc = await Injection.I
+          .read<FirebaseFirestore>()
           .collection(FirestorePaths.stories)
           .doc(params.id)
           .get();
@@ -137,6 +141,64 @@ final class StoriesRemoteSourceImpl implements StoriesRemoteSource {
           message: LocaleKeys
               .dataSourcesStoriesGetStoryByIdErrorsAnotherError.translate,
           throwMessage: 'Stories/GetStoryById/Catch: $e',
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<ResponseModel<List<StoryModel>>> getNewStories() async {
+    try {
+      final storiesSnap = await Injection.I
+          .read<FirebaseFirestore>()
+          .collection(FirestorePaths.stories)
+          .orderBy(StoryModel.createdAtKey, descending: true)
+          .limit(6)
+          .get();
+      final storiesFuture = storiesSnap.docs.map((storyDoc) async {
+        return _storyFromDoc(storyDoc);
+      }).toList();
+      final stories = await Future.wait(storiesFuture);
+      return ResponseModelSuccess(
+        data: stories
+            .where((e) => e.isSuccess)
+            .map((e) => e.asSuccess.data)
+            .toList(),
+      );
+    } on Exception catch (e) {
+      return ResponseModelFail(
+        error: ErrorModel(
+          message: 'Another error',
+          throwMessage: 'Stories/GetStories/Catch: $e',
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<ResponseModel<List<StoryModel>>> getPopularStories() async {
+    try {
+      final storiesSnap = await Injection.I
+          .read<FirebaseFirestore>()
+          .collection(FirestorePaths.stories)
+          .orderBy(StoryModel.savedByKey, descending: true)
+          .limit(10)
+          .get();
+      final storiesFuture = storiesSnap.docs.map((storyDoc) async {
+        return _storyFromDoc(storyDoc);
+      }).toList();
+      final stories = await Future.wait(storiesFuture);
+      return ResponseModelSuccess(
+        data: stories
+            .where((e) => e.isSuccess)
+            .map((e) => e.asSuccess.data)
+            .toList(),
+      );
+    } on Exception catch (e) {
+      return ResponseModelFail(
+        error: ErrorModel(
+          message: 'Another error',
+          throwMessage: 'Stories/GetStories/Catch: $e',
         ),
       );
     }

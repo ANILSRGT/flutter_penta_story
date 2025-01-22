@@ -13,10 +13,13 @@ class _ProfilePageViewState extends State<_ProfilePageView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(AppIcons.threeDotsVert),
+        actions: const [
+          AppPopupMenuButton<int>(
+            items: [
+              PopupMenuItem(
+                child: LogoutButton(),
+              ),
+            ],
           ),
         ],
       ),
@@ -60,35 +63,39 @@ class _ProfilePageViewState extends State<_ProfilePageView>
                 ),
                 context.ext.sizedBox.height.xl3,
                 Text(
-                  'Full Name',
+                  context.read<UserNotifier>().user?.fullName ?? '',
                   textAlign: TextAlign.center,
                   style: context.ext.theme.textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
-                  '@username',
+                  '@${context.read<UserNotifier>().user?.username}',
                   textAlign: TextAlign.center,
                   style: context.ext.theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 context.ext.sizedBox.height.md,
-                Card(
-                  color: context.appThemeExt.appColors.white
-                      .byBrightness(context.ext.theme.isDark),
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: context.ext.radius.border.all.md,
-                  ),
-                  child: Padding(
-                    padding: context.ext.padding.all.md,
-                    child: Text(
-                      'Fugiat proident eu labore ullamco culpa ad nisi cupidatat. Fugiat consectetur esse nostrud irure proident aliquip aliquip minim laborum sunt exercitation sunt est. Irure Lorem Lorem do dolor esse.',
-                      style: context.ext.theme.textTheme.bodyLarge?.copyWith(
-                        color: context.appThemeExt.appColors.white
-                            .byBrightness(context.ext.theme.isDark)
-                            .onColor,
+                Visibility(
+                  visible: context.read<UserNotifier>().user?.bio.isNotEmpty ??
+                      false,
+                  child: Card(
+                    color: context.appThemeExt.appColors.white
+                        .byBrightness(context.ext.theme.isDark),
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: context.ext.radius.border.all.md,
+                    ),
+                    child: Padding(
+                      padding: context.ext.padding.all.md,
+                      child: Text(
+                        context.read<UserNotifier>().user?.bio ?? '',
+                        style: context.ext.theme.textTheme.bodyLarge?.copyWith(
+                          color: context.appThemeExt.appColors.white
+                              .byBrightness(context.ext.theme.isDark)
+                              .onColor,
+                        ),
                       ),
                     ),
                   ),

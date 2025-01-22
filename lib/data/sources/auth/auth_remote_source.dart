@@ -24,7 +24,7 @@ abstract class AuthRemoteSource {
 }
 
 final class AuthRemoteSourceImpl extends AuthRemoteSource {
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth = Injection.I.read<FirebaseAuth>();
 
   @override
   Future<ResponseModel<void>> sendEmailVerification() async {

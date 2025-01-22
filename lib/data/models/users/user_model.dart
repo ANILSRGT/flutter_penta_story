@@ -41,6 +41,8 @@ abstract class UserModel with _$UserModel {
     };
   }
 
+  String get fullName => '$firstName $lastName';
+
   static const usernameKey = 'username';
   static const emailKey = 'email';
   static const firstNameKey = 'firstName';

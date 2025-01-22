@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:penta_story/data/repositories/auth/auth_repository_impl.dart';
@@ -16,6 +18,8 @@ import 'package:penta_story/domain/usecases/auth/auth_sing_in_with_email_and_pas
 import 'package:penta_story/domain/usecases/auth/auth_sing_up_with_email_and_password_usecase.dart';
 import 'package:penta_story/domain/usecases/stories/stories_get_all_usecase.dart';
 import 'package:penta_story/domain/usecases/stories/stories_get_by_id_usecase.dart';
+import 'package:penta_story/domain/usecases/stories/stories_get_new_all_usecase.dart';
+import 'package:penta_story/domain/usecases/stories/stories_get_popular_all_usecase.dart';
 import 'package:penta_story/domain/usecases/users/users_create_usecase.dart';
 import 'package:penta_story/domain/usecases/users/users_get_all_usecase.dart';
 import 'package:penta_story/domain/usecases/users/users_get_user_by_id_usecase.dart';
@@ -30,6 +34,9 @@ final class Injection {
 
   Future<void> init() async {
     _sl
+      //~~~ Dependencies ~~~
+      ..registerSingleton<FirebaseAuth>(FirebaseAuth.instance)
+      ..registerSingleton<FirebaseFirestore>(FirebaseFirestore.instance)
       //~~~ Data sources ~~~
       ..registerSingleton<StoriesRemoteSource>(StoriesRemoteSourceImpl())
       ..registerSingleton<AuthRemoteSource>(AuthRemoteSourceImpl())
@@ -42,6 +49,10 @@ final class Injection {
       //*** Stories ***
       ..registerSingleton<StoriesGetAllUsecase>(StoriesGetAllUsecase())
       ..registerSingleton<StoriesGetByIdUsecase>(StoriesGetByIdUsecase())
+      ..registerSingleton<StoriesGetNewAllUsecase>(StoriesGetNewAllUsecase())
+      ..registerSingleton<StoriesGetPopularAllUsecase>(
+        StoriesGetPopularAllUsecase(),
+      )
       //*** Auth ***
       ..registerSingleton<AuthSingUpWithEmailAndPasswordUsecase>(
         AuthSingUpWithEmailAndPasswordUsecase(),

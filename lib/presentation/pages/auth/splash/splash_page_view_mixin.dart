@@ -20,7 +20,7 @@ mixin _SplashPageViewMixin on State<_SplashPageView> {
       return context.router.replaceAll([const OnboardingRoute()]);
     }
 
-    final authUser = FirebaseAuth.instance.currentUser;
+    final authUser = Injection.I.read<FirebaseAuth>().currentUser;
 
     if (authUser == null) {
       return context.router.replaceAll([const AuthenticationRoute()]);

@@ -26,10 +26,13 @@ mixin _EmailVerificationPageViewMixin on State<_EmailVerificationPageView> {
         _emailCheckTimer = Timer.periodic(
           const Duration(seconds: 5),
           (timer) async {
-            await FirebaseAuth.instance.currentUser
+            await Injection.I
+                .read<FirebaseAuth>()
+                .currentUser
                 ?.reload()
                 .catchError((_) {});
-            if (FirebaseAuth.instance.currentUser?.emailVerified ?? false) {
+            if (Injection.I.read<FirebaseAuth>().currentUser?.emailVerified ??
+                false) {
               timer.cancel();
               if (!mounted) return;
               await context.router

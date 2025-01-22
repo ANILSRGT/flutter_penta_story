@@ -21,6 +21,7 @@ import 'package:penta_story/injection.dart';
 import 'package:penta_story/presentation/pages/auth/auth_profile_generator/auth_profile_generator_page_view_model.dart';
 import 'package:penta_story/presentation/widgets/avatar/profile_avatar_widget.dart';
 import 'package:penta_story/presentation/widgets/buttons/app_elevated_button.dart';
+import 'package:penta_story/presentation/widgets/buttons/logout_button.dart';
 import 'package:penta_story/presentation/widgets/dropdown/app_lang_dropdown.dart';
 import 'package:penta_story/presentation/widgets/fields/app_text_form_field.dart';
 import 'package:provider/provider.dart';

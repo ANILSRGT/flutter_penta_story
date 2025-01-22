@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 final class AuthGuard extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
-    final authUser = FirebaseAuth.instance.currentUser;
+    final authUser = Injection.I.read<FirebaseAuth>().currentUser;
 
     if (authUser == null &&
         resolver.route.name != AuthenticationRoute.page.name) {
@@ -37,7 +37,7 @@ final class AuthGuard extends AutoRouteGuard {
     if (authUser != null &&
         authUser.emailVerified &&
         user != null &&
-        resolver.route.name == AuthProfileGeneratorRoute.page.name) {
+        resolver.route.name != HomeRoute.page.name) {
       router.replaceAll([const HomeRoute()]);
       return;
     }

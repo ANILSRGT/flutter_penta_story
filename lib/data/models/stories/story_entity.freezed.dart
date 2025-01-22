@@ -25,6 +25,7 @@ mixin _$StoryModel {
   int get year => throw _privateConstructorUsedError;
   List<AppLocaliaztionsEnum> get languages =>
       throw _privateConstructorUsedError;
+  List<String> get savedBy => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
   List<StoryChapterModel> get chapters => throw _privateConstructorUsedError;
@@ -52,6 +53,7 @@ abstract class $StoryModelCopyWith<$Res> {
       String image,
       int year,
       List<AppLocaliaztionsEnum> languages,
+      List<String> savedBy,
       DateTime createdAt,
       DateTime updatedAt,
       List<StoryChapterModel> chapters,
@@ -81,6 +83,7 @@ class _$StoryModelCopyWithImpl<$Res, $Val extends StoryModel>
     Object? image = null,
     Object? year = null,
     Object? languages = null,
+    Object? savedBy = null,
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? chapters = null,
@@ -119,6 +122,10 @@ class _$StoryModelCopyWithImpl<$Res, $Val extends StoryModel>
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
               as List<AppLocaliaztionsEnum>,
+      savedBy: null == savedBy
+          ? _value.savedBy
+          : savedBy // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -156,6 +163,7 @@ abstract class _$$StoryModelImplCopyWith<$Res>
       String image,
       int year,
       List<AppLocaliaztionsEnum> languages,
+      List<String> savedBy,
       DateTime createdAt,
       DateTime updatedAt,
       List<StoryChapterModel> chapters,
@@ -183,6 +191,7 @@ class __$$StoryModelImplCopyWithImpl<$Res>
     Object? image = null,
     Object? year = null,
     Object? languages = null,
+    Object? savedBy = null,
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? chapters = null,
@@ -221,6 +230,10 @@ class __$$StoryModelImplCopyWithImpl<$Res>
           ? _value._languages
           : languages // ignore: cast_nullable_to_non_nullable
               as List<AppLocaliaztionsEnum>,
+      savedBy: null == savedBy
+          ? _value._savedBy
+          : savedBy // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -253,11 +266,13 @@ class _$StoryModelImpl extends _StoryModel {
       required this.image,
       required this.year,
       required final List<AppLocaliaztionsEnum> languages,
+      required final List<String> savedBy,
       required this.createdAt,
       required this.updatedAt,
       required final List<StoryChapterModel> chapters,
       this.deletedAt = null})
       : _languages = languages,
+        _savedBy = savedBy,
         _chapters = chapters,
         super._();
 
@@ -283,6 +298,14 @@ class _$StoryModelImpl extends _StoryModel {
     return EqualUnmodifiableListView(_languages);
   }
 
+  final List<String> _savedBy;
+  @override
+  List<String> get savedBy {
+    if (_savedBy is EqualUnmodifiableListView) return _savedBy;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_savedBy);
+  }
+
   @override
   final DateTime createdAt;
   @override
@@ -301,7 +324,7 @@ class _$StoryModelImpl extends _StoryModel {
 
   @override
   String toString() {
-    return 'StoryModel(id: $id, title: $title, author: $author, description: $description, summary: $summary, image: $image, year: $year, languages: $languages, createdAt: $createdAt, updatedAt: $updatedAt, chapters: $chapters, deletedAt: $deletedAt)';
+    return 'StoryModel(id: $id, title: $title, author: $author, description: $description, summary: $summary, image: $image, year: $year, languages: $languages, savedBy: $savedBy, createdAt: $createdAt, updatedAt: $updatedAt, chapters: $chapters, deletedAt: $deletedAt)';
   }
 
   @override
@@ -319,6 +342,7 @@ class _$StoryModelImpl extends _StoryModel {
             (identical(other.year, year) || other.year == year) &&
             const DeepCollectionEquality()
                 .equals(other._languages, _languages) &&
+            const DeepCollectionEquality().equals(other._savedBy, _savedBy) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -339,6 +363,7 @@ class _$StoryModelImpl extends _StoryModel {
       image,
       year,
       const DeepCollectionEquality().hash(_languages),
+      const DeepCollectionEquality().hash(_savedBy),
       createdAt,
       updatedAt,
       const DeepCollectionEquality().hash(_chapters),
@@ -363,6 +388,7 @@ abstract class _StoryModel extends StoryModel {
       required final String image,
       required final int year,
       required final List<AppLocaliaztionsEnum> languages,
+      required final List<String> savedBy,
       required final DateTime createdAt,
       required final DateTime updatedAt,
       required final List<StoryChapterModel> chapters,
@@ -385,6 +411,8 @@ abstract class _StoryModel extends StoryModel {
   int get year;
   @override
   List<AppLocaliaztionsEnum> get languages;
+  @override
+  List<String> get savedBy;
   @override
   DateTime get createdAt;
   @override

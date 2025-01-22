@@ -19,10 +19,7 @@ class _EmailVerificationPageViewState extends State<_EmailVerificationPageView>
           onChanged: (_) => setState(() {}),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(AppIcons.logout),
-          ),
+          LogoutButton.icon(),
         ],
       ),
       body: SafeArea(
