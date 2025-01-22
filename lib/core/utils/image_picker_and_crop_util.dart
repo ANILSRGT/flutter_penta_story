@@ -3,6 +3,8 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:penta_core/penta_core.dart';
 import 'package:penta_story/core/configs/constants/app_icons.dart';
+import 'package:penta_story/core/extensions/localization_ext.dart';
+import 'package:penta_story/core/localization/locale_keys.g.dart';
 
 final class ImagePickerUtil {
   const ImagePickerUtil._();
@@ -20,13 +22,13 @@ final class ImagePickerUtil {
             children: [
               ListTile(
                 leading: const Icon(AppIcons.camera),
-                title: const Text('Camera'),
+                title: Text(LocaleKeys.globalCamera.translate),
                 onTap: () => Navigator.pop(context, ImageSource.camera),
               ),
               const Divider(),
               ListTile(
                 leading: const Icon(AppIcons.gallery),
-                title: const Text('Gallery'),
+                title: Text(LocaleKeys.globalGallery.translate),
                 onTap: () => Navigator.pop(context, ImageSource.gallery),
               ),
             ],

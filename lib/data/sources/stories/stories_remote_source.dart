@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:penta_core/penta_core.dart';
 import 'package:penta_story/core/configs/constants/firestore_paths.dart';
+import 'package:penta_story/core/extensions/localization_ext.dart';
+import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/data/models/stories/params/stories_get_by_id_params.dart';
 import 'package:penta_story/data/models/stories/story_chapter_model.dart';
 import 'package:penta_story/data/models/stories/story_entity.dart';
@@ -21,9 +23,10 @@ final class StoriesRemoteSourceImpl implements StoriesRemoteSource {
     try {
       final storyData = storyDoc.data();
       if (storyData == null) {
-        return const ResponseModelFail(
+        return ResponseModelFail(
           error: ErrorModel(
-            message: 'Failed to get story data',
+            message: LocaleKeys
+                .dataSourcesStoriesStoryFromDocErrorsStoryNotFound.translate,
             throwMessage: 'Stories/_storyFromDoc: Story data is null',
           ),
         );
@@ -109,7 +112,8 @@ final class StoriesRemoteSourceImpl implements StoriesRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'Failed to get stories',
+          message: LocaleKeys
+              .dataSourcesStoriesGetStoriesErrorsAnotherError.translate,
           throwMessage: 'Stories/GetStories/Catch: $e',
         ),
       );
@@ -130,7 +134,8 @@ final class StoriesRemoteSourceImpl implements StoriesRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'Failed to get story',
+          message: LocaleKeys
+              .dataSourcesStoriesGetStoryByIdErrorsAnotherError.translate,
           throwMessage: 'Stories/GetStoryById/Catch: $e',
         ),
       );

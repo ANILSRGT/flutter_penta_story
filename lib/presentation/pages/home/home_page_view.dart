@@ -32,7 +32,7 @@ class _HomePageViewState extends State<_HomePageView> with _HomePageViewMixin {
                 ),
                 context.ext.sizedBox.height.xl,
                 AppSearchAnchor(
-                  hintText: 'Explore stories and authors',
+                  hintText: LocaleKeys.pagesHomeSearchBarHint.translate,
                   reverseColor: true,
                   suggestionsBuilder: (p0) {
                     return [

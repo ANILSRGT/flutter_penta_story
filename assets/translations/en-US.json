@@ -1,4 +1,11 @@
 {
+  "global": {
+    "errors": {
+      "noInternetConnection": "No internet connection"
+    },
+    "gallery": "Gallery",
+    "camera": "Camera"
+  },
   "pages": {
     "onboarding": {
       "items": {
@@ -45,6 +52,17 @@
       "description": "Enter your email address and we will send you a link to reset your password.",
       "sendButton": {
         "label": "Send Email"
+      },
+      "fields": {
+        "email": {
+          "hint": "Email"
+        }
+      },
+      "mixin": {
+        "onSendEmail": {
+          "invalidEmail": "Email is invalid",
+          "success": "Email sent"
+        }
       }
     },
     "authentication": {
@@ -76,6 +94,11 @@
             "sublabel": "Sign Up"
           }
         }
+      },
+      "mixin": {
+        "authButton": {
+          "formValidateError": "Please fill all fields correctly"
+        }
       }
     },
     "authProfileGenerator": {
@@ -97,9 +120,18 @@
         "continue": {
           "label": "Continue"
         }
+      },
+      "mixin": {
+        "onContinue": {
+          "formValidateError": "Please fill all fields correctly",
+          "userNotFound": "Please login first"
+        }
       }
     },
     "home": {
+      "searchBar": {
+        "hint": "Explore Stories and Authors"
+      },
       "newStoriesTitle": "New Stories",
       "popularStoriesTitle": "Popular Stories"
     },
@@ -145,6 +177,75 @@
     },
     "invalid": {
       "email": "Email is invalid"
+    }
+  },
+  "dataSources": {
+    "auth": {
+      "sendEmailVerification": {
+        "errors": {
+          "userNotFound": "User not found",
+          "anotherError": "Something went wrong while sending email"
+        }
+      },
+      "sendPasswordResetEmail": {
+        "errors": {
+          "anotherError": "Something went wrong while sending email"
+        }
+      },
+      "signInWithEmailAndPassword": {
+        "errors": {
+          "userNotFound": "Something went wrong while signing in",
+          "anotherError": "Something went wrong while signing in"
+        }
+      },
+      "signOut": {
+        "errors": {
+          "anotherError": "Something went wrong while signing out"
+        }
+      },
+      "signUpWithEmailAndPassword": {
+        "errors": {
+          "userNotFound": "Something went wrong while signing up",
+          "anotherError": "Something went wrong while signing up"
+        }
+      }
+    },
+    "stories": {
+      "storyFromDoc": {
+        "errors": {
+          "storyNotFound": "Failed to load story"
+        }
+      },
+      "getStories": {
+        "errors": {
+          "anotherError": "Failed to load stories"
+        }
+      },
+      "getStoryById": {
+        "errors": {
+          "anotherError": "Failed to load story"
+        }
+      }
+    },
+    "users": {
+      "createUser": {
+        "errors": {
+          "emailExists": "User already exists",
+          "usernameExists": "Username already exists",
+          "anotherError": "Something went wrong while creating user"
+        }
+      },
+      "getUserById": {
+        "errors": {
+          "userNotFound": "User not found",
+          "anotherError": "Something went wrong while getting user"
+        }
+      },
+      "getUsers": {
+        "errors": {
+          "anotherError": "Failed to load users"
+        }
+      }
     }
   }
 }

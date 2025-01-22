@@ -36,7 +36,10 @@ mixin _AuthProfileGeneratorPageViewMixin
 
   Future<void> _onContinue() async {
     if (_formKey.currentState?.validate() == false) {
-      showToast('Please fill all fields correctly');
+      showToast(
+        LocaleKeys.pagesAuthProfileGeneratorMixinOnContinueFormValidateError
+            .translate,
+      );
       return;
     }
 
@@ -65,7 +68,10 @@ mixin _AuthProfileGeneratorPageViewMixin
       },
       callback: (result) async {
         if (result == null) {
-          showToast('Please login first');
+          showToast(
+            LocaleKeys
+                .pagesAuthProfileGeneratorMixinOnContinueUserNotFound.translate,
+          );
           return;
         }
 

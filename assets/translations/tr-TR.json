@@ -1,150 +1,251 @@
 {
-    "pages": {
-        "onboarding": {
-            "items": {
-                "1": {
-                    "title": "Hikaye Evrenine Hoş Geldiniz",
-                    "subtitle": "Okuyun ya da Dinleyin—Sizin Seçiminiz",
-                    "description": "Okumayı mı yoksa dinlemeyi mi tercih edersiniz, biz buradayız. İstediğiniz zaman, istediğiniz yerde, seçtiğiniz şekilde büyüleyici hikayelere dalın."
-                },
-                "2": {
-                    "title": "Zahmetsiz ve Etkileyici",
-                    "subtitle": "Hayatınıza Uyan Hikayeler",
-                    "description": "Okuma ve dinleme arasında sorunsuz bir şekilde geçiş yapın. Evde, işe giderken ya da dinlenirken, favori hikayeleriniz her zaman yanınızda."
-                },
-                "3": {
-                    "title": "Başlamaya Hazır mısınız?",
-                    "subtitle": "Hikaye Yolculuğunuza Bugün Başlayın",
-                    "description": "İlk hikayenizi seçin ve okumayı ya da dinlemeyi seçin—hayal gücü dünyasına dalın."
-                }
-            },
-            "itemWidget": {
-                "backButton": {
-                    "label": "Geri"
-                },
-                "nextButton": {
-                    "label": "İleri"
-                },
-                "skipButton": {
-                    "label": "Atla"
-                },
-                "completedButton": {
-                    "label": "Oku / Dinle"
-                }
-            }
+  "global": {
+    "errors": {
+      "noInternetConnection": "İnternet bağlantısı yok"
+    },
+    "gallery": "Galeri",
+    "camera": "Kamera"
+  },
+  "pages": {
+    "onboarding": {
+      "items": {
+        "1": {
+          "title": "Hikaye Evrenine Hoş Geldiniz",
+          "subtitle": "Okuyun ya da Dinleyin—Sizin Seçiminiz",
+          "description": "Okumayı mı yoksa dinlemeyi mi tercih edersiniz, biz buradayız. İstediğiniz zaman, istediğiniz yerde, seçtiğiniz şekilde büyüleyici hikayelere dalın."
         },
-        "emailVerification": {
-            "title": "E-postanızı Doğrulayın",
-            "description": "E-posta adresinize bir e-posta gönderdik. Devam etmek için lütfen e-posta adresinizi doğrulayın.",
-            "resendButton": {
-                "label": "E-postayı Tekrar Gönder"
-            }
+        "2": {
+          "title": "Zahmetsiz ve Etkileyici",
+          "subtitle": "Hayatınıza Uyan Hikayeler",
+          "description": "Okuma ve dinleme arasında sorunsuz bir şekilde geçiş yapın. Evde, işe giderken ya da dinlenirken, favori hikayeleriniz her zaman yanınızda."
+        },
+        "3": {
+          "title": "Başlamaya Hazır mısınız?",
+          "subtitle": "Hikaye Yolculuğunuza Bugün Başlayın",
+          "description": "İlk hikayenizi seçin ve okumayı ya da dinlemeyi seçin—hayal gücü dünyasına dalın."
+        }
+      },
+      "itemWidget": {
+        "backButton": {
+          "label": "Geri"
+        },
+        "nextButton": {
+          "label": "İleri"
+        },
+        "skipButton": {
+          "label": "Atla"
+        },
+        "completedButton": {
+          "label": "Oku / Dinle"
+        }
+      }
+    },
+    "emailVerification": {
+      "title": "E-postanızı Doğrulayın",
+      "description": "E-posta adresinize bir e-posta gönderdik. Devam etmek için lütfen e-posta adresinizi doğrulayın.",
+      "resendButton": {
+        "label": "E-postayı Tekrar Gönder"
+      }
+    },
+    "forgotPassword": {
+      "title": "Şifremi Unuttum",
+      "description": "E-posta adresinizi girin ve şifrenizi sıfırlamak için size bir bağlantı göndereceğiz.",
+      "sendButton": {
+        "label": "E-posta Gönder"
+      },
+      "fields": {
+        "email": {
+          "hint": "E-posta"
+        }
+      },
+      "mixin": {
+        "onSendEmail": {
+          "invalidEmail": "E-posta geçersiz",
+          "success": "E-posta gönderildi"
+        }
+      }
+    },
+    "authentication": {
+      "fields": {
+        "email": {
+          "hint": "E-posta"
+        },
+        "password": {
+          "hint": "Şifre"
+        }
+      },
+      "buttons": {
+        "signIn": {
+          "label": "Giriş Yap"
+        },
+        "signUp": {
+          "label": "Kaydol"
         },
         "forgotPassword": {
-            "title": "Şifremi Unuttum",
-            "description": "E-posta adresinizi girin ve şifrenizi sıfırlamak için size bir bağlantı göndereceğiz.",
-            "sendButton": {
-                "label": "E-posta Gönder"
-            }
+          "label": "Şifrenizi mi unuttunuz?"
         },
-        "authentication": {
-            "fields": {
-                "email": {
-                    "hint": "E-posta"
-                },
-                "password": {
-                    "hint": "Şifre"
-                }
-            },
-            "buttons": {
-                "signIn": {
-                    "label": "Giriş Yap"
-                },
-                "signUp": {
-                    "label": "Kaydol"
-                },
-                "forgotPassword": {
-                    "label": "Şifrenizi mi unuttunuz?"
-                },
-                "hasAccount": {
-                    "has": {
-                        "label": "Zaten bir hesabınız var mı?",
-                        "sublabel": "Giriş Yap"
-                    },
-                    "not": {
-                        "label": "Hesabınız yok mu?",
-                        "sublabel": "Kaydol"
-                    }
-                }
-            }
-        },
-        "authProfileGenerator": {
-            "fields": {
-                "username": {
-                    "hint": "Kullanıcı Adı"
-                },
-                "firstName": {
-                    "hint": "Ad"
-                },
-                "lastName": {
-                    "hint": "Soyad"
-                },
-                "bio": {
-                    "hint": "Biyografi (İsteğe Bağlı)"
-                }
-            },
-            "buttons": {
-                "continue": {
-                    "label": "Devam Et"
-                }
-            }
-        },
-        "home": {
-            "newStoriesTitle": "Yeni Hikayeler",
-            "popularStoriesTitle": "Popüler Hikayeler"
-        },
-        "story": {
-            "summary": {
-                "title": "Özet"
-            },
-            "readButton": {
-                "label": "Oku"
-            },
-            "listenButton": {
-                "label": "Dinle"
-            }
+        "hasAccount": {
+          "has": {
+            "label": "Zaten bir hesabınız var mı?",
+            "sublabel": "Giriş Yap"
+          },
+          "not": {
+            "label": "Hesabınız yok mu?",
+            "sublabel": "Kaydol"
+          }
         }
+      },
+      "mixin": {
+        "authButton": {
+          "formValidateError": "Lütfen tüm alanları doğru şekilde doldurun"
+        }
+      }
     },
-    "widgets": {
-        "dropdown": {
-            "appLangDropdown": {
-                "field": {
-                    "label": "Dil"
-                }
-            }
+    "authProfileGenerator": {
+      "fields": {
+        "username": {
+          "hint": "Kullanıcı Adı"
         },
-        "story": {
-            "storyGridCard": {
-                "pagesCount": {
-                    "singular": "1 Sayfa",
-                    "plural": "{} Sayfa"
-                }
-            }
+        "firstName": {
+          "hint": "Ad"
+        },
+        "lastName": {
+          "hint": "Soyad"
+        },
+        "bio": {
+          "hint": "Biyografi (İsteğe Bağlı)"
         }
+      },
+      "buttons": {
+        "continue": {
+          "label": "Devam Et"
+        }
+      },
+      "mixin": {
+        "onContinue": {
+          "formValidateError": "Lütfen tüm alanları doğru şekilde doldurun",
+          "userNotFound": "Lütfen önce giriş yapın"
+        }
+      }
     },
-    "validations": {
-        "required": {
-            "email": "E-posta gerekli",
-            "password": "Şifre gerekli",
-            "username": "Kullanıcı adı gerekli",
-            "firstName": "Ad gerekli",
-            "lastName": "Soyad gerekli"
-        },
-        "length": {
-            "password": "Şifre en az {} karakter olmalıdır"
-        },
-        "invalid": {
-            "email": "Geçersiz e-posta adresi"
-        }
+    "home": {
+      "searchBar": {
+        "hint": "Hikayeleri ve Yazarları Keşfet"
+      },
+      "newStoriesTitle": "Yeni Hikayeler",
+      "popularStoriesTitle": "Popüler Hikayeler"
+    },
+    "story": {
+      "summary": {
+        "title": "Özet"
+      },
+      "readButton": {
+        "label": "Oku"
+      },
+      "listenButton": {
+        "label": "Dinle"
+      }
     }
+  },
+  "widgets": {
+    "dropdown": {
+      "appLangDropdown": {
+        "field": {
+          "label": "Dil"
+        }
+      }
+    },
+    "story": {
+      "storyGridCard": {
+        "pagesCount": {
+          "singular": "1 Sayfa",
+          "plural": "{} Sayfa"
+        }
+      }
+    }
+  },
+  "validations": {
+    "required": {
+      "email": "E-posta gerekli",
+      "password": "Şifre gerekli",
+      "username": "Kullanıcı adı gerekli",
+      "firstName": "Ad gerekli",
+      "lastName": "Soyad gerekli"
+    },
+    "length": {
+      "password": "Şifre en az {} karakter olmalıdır"
+    },
+    "invalid": {
+      "email": "Geçersiz e-posta adresi"
+    }
+  },
+  "dataSources": {
+    "auth": {
+      "sendEmailVerification": {
+        "errors": {
+          "userNotFound": "Kullanıcı bulunamadı",
+          "anotherError": "E-posta gönderilirken bir hata oluştu"
+        }
+      },
+      "sendPasswordResetEmail": {
+        "errors": {
+          "anotherError": "E-posta gönderilirken bir hata oluştu"
+        }
+      },
+      "signInWithEmailAndPassword": {
+        "errors": {
+          "userNotFound": "Giriş yapılırken bir hata oluştu",
+          "anotherError": "Giriş yapılırken bir hata oluştu"
+        }
+      },
+      "signOut": {
+        "errors": {
+          "anotherError": "Çıkış yapılırken bir hata oluştu"
+        }
+      },
+      "signUpWithEmailAndPassword": {
+        "errors": {
+          "userNotFound": "Kayıt olurken bir hata oluştu",
+          "anotherError": "Kayıt olurken bir hata oluştu"
+        }
+      }
+    },
+    "stories": {
+      "storyFromDoc": {
+        "errors": {
+          "storyNotFound": "Failed to load story"
+        }
+      },
+      "getStories": {
+        "errors": {
+          "anotherError": "Failed to load stories"
+        }
+      },
+      "getStoryById": {
+        "errors": {
+          "anotherError": "Failed to load story"
+        }
+      }
+    },
+    "users": {
+      "createUser": {
+        "errors": {
+          "emailExists": "Kullanıcı zaten var",
+          "usernameExists": "Kullanıcı adı zaten var",
+          "anotherError": "Kullanıcı oluşturulurken bir hata oluştu"
+        }
+      },
+      "getUserById": {
+        "errors": {
+          "userNotFound": "Kullanıcı bulunamadı",
+          "anotherError": "Kullanıcı yüklenirken bir hata oluştu"
+        }
+      },
+      "getUsers": {
+        "errors": {
+          "anotherError": "Kullanıcılar yüklenirken bir hata oluştu"
+        }
+      }
+    }
+  }
 }

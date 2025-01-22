@@ -55,7 +55,8 @@ class _ForgotPasswordPageViewState extends State<_ForgotPasswordPageView>
                   context.ext.sizedBox.height.xl3,
                   AppTextFormField(
                     controller: _emailController,
-                    hintText: 'Email',
+                    hintText:
+                        LocaleKeys.pagesForgotPasswordFieldsEmailHint.translate,
                     focusNode: _emailFocusNode,
                     nextFocusNode: _sendEmailButtonFocusNode,
                     keyboardType: TextInputType.emailAddress,

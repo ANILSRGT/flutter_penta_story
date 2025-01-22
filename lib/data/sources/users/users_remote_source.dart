@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:penta_core/penta_core.dart';
 import 'package:penta_story/core/configs/constants/firestore_paths.dart';
+import 'package:penta_story/core/extensions/localization_ext.dart';
+import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/data/models/users/params/users_create_params.dart';
 import 'package:penta_story/data/models/users/params/users_get_user_by_id_params.dart';
 import 'package:penta_story/data/models/users/user_model.dart';
@@ -24,9 +26,10 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
           .get();
 
       if (emailCheckSnap.docs.isNotEmpty) {
-        return const ResponseModelSuccessNegative(
+        return ResponseModelSuccessNegative(
           data: null,
-          message: 'User already exists',
+          message:
+              LocaleKeys.dataSourcesUsersCreateUserErrorsEmailExists.translate,
         );
       }
 
@@ -37,9 +40,10 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
           .get();
 
       if (usernameCheckSnap.docs.isNotEmpty) {
-        return const ResponseModelSuccessNegative(
+        return ResponseModelSuccessNegative(
           data: null,
-          message: 'Username already exists',
+          message: LocaleKeys
+              .dataSourcesUsersCreateUserErrorsUsernameExists.translate,
         );
       }
 
@@ -52,7 +56,8 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'User creation failed',
+          message:
+              LocaleKeys.dataSourcesUsersCreateUserErrorsAnotherError.translate,
           throwMessage: 'Users/CreateUser/Catch: $e',
         ),
       );
@@ -70,9 +75,10 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
           .get();
       final data = userDoc.data();
       if (data == null) {
-        return const ResponseModelSuccessNegative(
+        return ResponseModelSuccessNegative(
           data: null,
-          message: 'User not found',
+          message: LocaleKeys
+              .dataSourcesUsersGetUserByIdErrorsUserNotFound.translate,
         );
       }
 
@@ -85,7 +91,8 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'User retrieval failed',
+          message: LocaleKeys
+              .dataSourcesUsersGetUserByIdErrorsAnotherError.translate,
           throwMessage: 'Users/GetUserById/Catch: $e',
         ),
       );
@@ -106,7 +113,8 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
       return Future.value(
         ResponseModelFail(
           error: ErrorModel(
-            message: 'User retrieval failed',
+            message:
+                LocaleKeys.dataSourcesUsersGetUsersErrorsAnotherError.translate,
             throwMessage: 'Users/GetUsers/Catch: $e',
           ),
         ),

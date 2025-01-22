@@ -7,6 +7,8 @@ import 'package:penta_story/core/cache/app_cache.dart';
 import 'package:penta_story/core/configs/enums/app_localiaztions_enum.dart';
 import 'package:penta_story/core/configs/router/app_router.dart';
 import 'package:penta_story/core/configs/theme/i_app_theme.dart';
+import 'package:penta_story/core/extensions/localization_ext.dart';
+import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/core/localization/localization_manager.dart';
 import 'package:penta_story/core/providers/theme_notifier.dart';
 import 'package:penta_story/core/providers/user_notifier.dart';
@@ -54,7 +56,7 @@ class _MyAppState extends State<MyApp> {
   void _connectivityChanged(bool hasConnection) {
     if (!hasConnection) {
       showToast(
-        'No internet connection',
+        LocaleKeys.globalErrorsNoInternetConnection.translate,
         backgroundColor: const Color(0xFFA80B00),
         textStyle: const TextStyle(color: Color(0xFFFBFBFB)),
       );

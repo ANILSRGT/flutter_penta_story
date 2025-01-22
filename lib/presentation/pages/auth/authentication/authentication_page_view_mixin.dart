@@ -29,7 +29,10 @@ mixin _AuthenticationPageViewMixin on State<_AuthenticationPageView> {
 
     final isValidate = _formKey.currentState?.validate() ?? false;
     if (!isValidate) {
-      showToast('Please fill in all fields correctly');
+      showToast(
+        LocaleKeys
+            .pagesAuthenticationMixinAuthButtonFormValidateError.translate,
+      );
       return;
     }
 

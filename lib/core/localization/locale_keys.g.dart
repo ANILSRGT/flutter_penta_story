@@ -3,6 +3,9 @@
 final class LocaleKeys {
 	LocaleKeys._();
 
+	static String get globalErrorsNoInternetConnection => 'global.errors.noInternetConnection';
+	static String get globalGallery => 'global.gallery';
+	static String get globalCamera => 'global.camera';
 	static String get pagesOnboardingItems1Title => 'pages.onboarding.items.1.title';
 	static String get pagesOnboardingItems1Subtitle => 'pages.onboarding.items.1.subtitle';
 	static String get pagesOnboardingItems1Description => 'pages.onboarding.items.1.description';
@@ -22,6 +25,9 @@ final class LocaleKeys {
 	static String get pagesForgotPasswordTitle => 'pages.forgotPassword.title';
 	static String get pagesForgotPasswordDescription => 'pages.forgotPassword.description';
 	static String get pagesForgotPasswordSendButtonLabel => 'pages.forgotPassword.sendButton.label';
+	static String get pagesForgotPasswordFieldsEmailHint => 'pages.forgotPassword.fields.email.hint';
+	static String get pagesForgotPasswordMixinOnSendEmailInvalidEmail => 'pages.forgotPassword.mixin.onSendEmail.invalidEmail';
+	static String get pagesForgotPasswordMixinOnSendEmailSuccess => 'pages.forgotPassword.mixin.onSendEmail.success';
 	static String get pagesAuthenticationFieldsEmailHint => 'pages.authentication.fields.email.hint';
 	static String get pagesAuthenticationFieldsPasswordHint => 'pages.authentication.fields.password.hint';
 	static String get pagesAuthenticationButtonsSignInLabel => 'pages.authentication.buttons.signIn.label';
@@ -31,11 +37,15 @@ final class LocaleKeys {
 	static String get pagesAuthenticationButtonsHasAccountHasSublabel => 'pages.authentication.buttons.hasAccount.has.sublabel';
 	static String get pagesAuthenticationButtonsHasAccountNotLabel => 'pages.authentication.buttons.hasAccount.not.label';
 	static String get pagesAuthenticationButtonsHasAccountNotSublabel => 'pages.authentication.buttons.hasAccount.not.sublabel';
+	static String get pagesAuthenticationMixinAuthButtonFormValidateError => 'pages.authentication.mixin.authButton.formValidateError';
 	static String get pagesAuthProfileGeneratorFieldsUsernameHint => 'pages.authProfileGenerator.fields.username.hint';
 	static String get pagesAuthProfileGeneratorFieldsFirstNameHint => 'pages.authProfileGenerator.fields.firstName.hint';
 	static String get pagesAuthProfileGeneratorFieldsLastNameHint => 'pages.authProfileGenerator.fields.lastName.hint';
 	static String get pagesAuthProfileGeneratorFieldsBioHint => 'pages.authProfileGenerator.fields.bio.hint';
 	static String get pagesAuthProfileGeneratorButtonsContinueLabel => 'pages.authProfileGenerator.buttons.continue.label';
+	static String get pagesAuthProfileGeneratorMixinOnContinueFormValidateError => 'pages.authProfileGenerator.mixin.onContinue.formValidateError';
+	static String get pagesAuthProfileGeneratorMixinOnContinueUserNotFound => 'pages.authProfileGenerator.mixin.onContinue.userNotFound';
+	static String get pagesHomeSearchBarHint => 'pages.home.searchBar.hint';
 	static String get pagesHomeNewStoriesTitle => 'pages.home.newStoriesTitle';
 	static String get pagesHomePopularStoriesTitle => 'pages.home.popularStoriesTitle';
 	static String get pagesStorySummaryTitle => 'pages.story.summary.title';
@@ -51,4 +61,21 @@ final class LocaleKeys {
 	static String get validationsRequiredLastName => 'validations.required.lastName';
 	static String get validationsLengthPasswordArgs1 => 'validations.length.password';
 	static String get validationsInvalidEmail => 'validations.invalid.email';
+	static String get dataSourcesAuthSendEmailVerificationErrorsUserNotFound => 'dataSources.auth.sendEmailVerification.errors.userNotFound';
+	static String get dataSourcesAuthSendEmailVerificationErrorsAnotherError => 'dataSources.auth.sendEmailVerification.errors.anotherError';
+	static String get dataSourcesAuthSendPasswordResetEmailErrorsAnotherError => 'dataSources.auth.sendPasswordResetEmail.errors.anotherError';
+	static String get dataSourcesAuthSignInWithEmailAndPasswordErrorsUserNotFound => 'dataSources.auth.signInWithEmailAndPassword.errors.userNotFound';
+	static String get dataSourcesAuthSignInWithEmailAndPasswordErrorsAnotherError => 'dataSources.auth.signInWithEmailAndPassword.errors.anotherError';
+	static String get dataSourcesAuthSignOutErrorsAnotherError => 'dataSources.auth.signOut.errors.anotherError';
+	static String get dataSourcesAuthSignUpWithEmailAndPasswordErrorsUserNotFound => 'dataSources.auth.signUpWithEmailAndPassword.errors.userNotFound';
+	static String get dataSourcesAuthSignUpWithEmailAndPasswordErrorsAnotherError => 'dataSources.auth.signUpWithEmailAndPassword.errors.anotherError';
+	static String get dataSourcesStoriesStoryFromDocErrorsStoryNotFound => 'dataSources.stories.storyFromDoc.errors.storyNotFound';
+	static String get dataSourcesStoriesGetStoriesErrorsAnotherError => 'dataSources.stories.getStories.errors.anotherError';
+	static String get dataSourcesStoriesGetStoryByIdErrorsAnotherError => 'dataSources.stories.getStoryById.errors.anotherError';
+	static String get dataSourcesUsersCreateUserErrorsEmailExists => 'dataSources.users.createUser.errors.emailExists';
+	static String get dataSourcesUsersCreateUserErrorsUsernameExists => 'dataSources.users.createUser.errors.usernameExists';
+	static String get dataSourcesUsersCreateUserErrorsAnotherError => 'dataSources.users.createUser.errors.anotherError';
+	static String get dataSourcesUsersGetUserByIdErrorsUserNotFound => 'dataSources.users.getUserById.errors.userNotFound';
+	static String get dataSourcesUsersGetUserByIdErrorsAnotherError => 'dataSources.users.getUserById.errors.anotherError';
+	static String get dataSourcesUsersGetUsersErrorsAnotherError => 'dataSources.users.getUsers.errors.anotherError';
 }

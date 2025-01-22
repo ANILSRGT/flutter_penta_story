@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:penta_core/penta_core.dart';
+import 'package:penta_story/core/extensions/localization_ext.dart';
+import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/data/models/auth/auth_user_model.dart';
 import 'package:penta_story/data/models/auth/params/auth_send_password_reset_email_params.dart';
 import 'package:penta_story/data/models/auth/params/auth_sign_in_with_email_and_password_params.dart';
@@ -29,9 +31,11 @@ final class AuthRemoteSourceImpl extends AuthRemoteSource {
     try {
       final user = _firebaseAuth.currentUser;
       if (user == null) {
-        return const ResponseModelFail(
+        return ResponseModelFail(
           error: ErrorModel(
-            message: 'User not found',
+            message: LocaleKeys
+                .dataSourcesAuthSendEmailVerificationErrorsUserNotFound
+                .translate,
             throwMessage: 'Auth/SendEmailVerification: User not found',
           ),
         );
@@ -51,7 +55,8 @@ final class AuthRemoteSourceImpl extends AuthRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'An error occurred while sending email verification',
+          message: LocaleKeys
+              .dataSourcesAuthSendEmailVerificationErrorsAnotherError.translate,
           throwMessage: 'Auth/SendEmailVerification/Catch: $e',
         ),
       );
@@ -78,7 +83,9 @@ final class AuthRemoteSourceImpl extends AuthRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'An error occurred while sending password reset email',
+          message: LocaleKeys
+              .dataSourcesAuthSendPasswordResetEmailErrorsAnotherError
+              .translate,
           throwMessage: 'Auth/SendPasswordResetEmail/Catch: $e',
         ),
       );
@@ -96,9 +103,11 @@ final class AuthRemoteSourceImpl extends AuthRemoteSource {
       );
       final user = userCredential.user;
       if (user == null) {
-        return const ResponseModelFail(
+        return ResponseModelFail(
           error: ErrorModel(
-            message: 'An error occurred while signing in',
+            message: LocaleKeys
+                .dataSourcesAuthSignInWithEmailAndPasswordErrorsUserNotFound
+                .translate,
             throwMessage: 'Auth/SignInWithEmailAndPassword: User not found',
           ),
         );
@@ -123,7 +132,9 @@ final class AuthRemoteSourceImpl extends AuthRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'An error occurred while signing in',
+          message: LocaleKeys
+              .dataSourcesAuthSignInWithEmailAndPasswordErrorsAnotherError
+              .translate,
           throwMessage: 'Auth/SignInWithEmailAndPassword/Catch: $e',
         ),
       );
@@ -148,7 +159,8 @@ final class AuthRemoteSourceImpl extends AuthRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'An error occurred while signing out',
+          message:
+              LocaleKeys.dataSourcesAuthSignOutErrorsAnotherError.translate,
           throwMessage: 'Auth/SignOut/Catch: $e',
         ),
       );
@@ -166,9 +178,11 @@ final class AuthRemoteSourceImpl extends AuthRemoteSource {
       );
       final user = userCredential.user;
       if (user == null) {
-        return const ResponseModelFail(
+        return ResponseModelFail(
           error: ErrorModel(
-            message: 'An error occurred while signing up',
+            message: LocaleKeys
+                .dataSourcesAuthSignUpWithEmailAndPasswordErrorsUserNotFound
+                .translate,
             throwMessage: 'Auth/SignUpWithEmailAndPassword: User not found',
           ),
         );
@@ -193,7 +207,9 @@ final class AuthRemoteSourceImpl extends AuthRemoteSource {
     } on Exception catch (e) {
       return ResponseModelFail(
         error: ErrorModel(
-          message: 'An error occurred while signing up',
+          message: LocaleKeys
+              .dataSourcesAuthSignUpWithEmailAndPasswordErrorsAnotherError
+              .translate,
           throwMessage: 'Auth/SignUpWithEmailAndPassword/Catch: $e',
         ),
       );

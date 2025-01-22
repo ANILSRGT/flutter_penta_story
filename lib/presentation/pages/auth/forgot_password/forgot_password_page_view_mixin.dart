@@ -7,12 +7,12 @@ mixin _ForgotPasswordPageViewMixin on State<_ForgotPasswordPageView> {
 
   Future<void> _sendEmail() async {
     if (!_emailController.selection.isValid) {
-      showToast('Invalid email');
+      showToast(
+        LocaleKeys.pagesForgotPasswordMixinOnSendEmailInvalidEmail.translate,
+      );
       return;
     }
 
-    showToast('Email sent');
-    context.router.back();
     return context.showLoadingDialog(
       future: () async =>
           Injection.I.read<AuthSendPasswordResetEmailUsecase>().execute(
@@ -21,7 +21,9 @@ mixin _ForgotPasswordPageViewMixin on State<_ForgotPasswordPageView> {
       callback: (res) async {
         return await res.when(
           onSuccess: (value) async {
-            showToast('Email sent');
+            showToast(
+              LocaleKeys.pagesForgotPasswordMixinOnSendEmailSuccess.translate,
+            );
             if (!mounted) return;
             context.router.back();
           },
