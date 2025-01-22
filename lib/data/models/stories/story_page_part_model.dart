@@ -21,7 +21,7 @@ abstract class StoryPagePartModel with _$StoryPagePartModel {
         id: id,
         index: json[indexKey] as int,
         content:
-            ModelWithLang.fromJson(json[contentKey] as Map<String, String>),
+            ModelWithLang.fromJson(json[contentKey] as Map<String, dynamic>),
       );
 
   static const indexKey = 'index';

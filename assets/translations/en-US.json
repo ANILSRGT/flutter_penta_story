@@ -132,8 +132,14 @@
       "searchBar": {
         "hint": "Explore Stories and Authors"
       },
-      "newStoriesTitle": "New Stories",
-      "popularStoriesTitle": "Popular Stories"
+      "newStories": {
+        "title": "New Stories",
+        "notFound": "Stories not found"
+      },
+      "popularStories": {
+        "title": "Popular Stories",
+        "notFound": "Stories not found"
+      }
     },
     "story": {
       "summary": {
@@ -224,6 +230,16 @@
       "getStoryById": {
         "errors": {
           "anotherError": "Failed to load story"
+        }
+      },
+      "getNewStories": {
+        "errors": {
+          "anotherError": "Failed to load new stories"
+        }
+      },
+      "getPopularStories": {
+        "errors": {
+          "anotherError": "Failed to load popular stories"
         }
       }
     },

@@ -48,6 +48,9 @@ final class Injection {
       //~~~ Usecases ~~~
       //*** Stories ***
       ..registerSingleton<StoriesGetAllUsecase>(StoriesGetAllUsecase())
+      ..registerSingleton<StoriesGetAllWithQueryUsecase>(
+        StoriesGetAllWithQueryUsecase(),
+      )
       ..registerSingleton<StoriesGetByIdUsecase>(StoriesGetByIdUsecase())
       ..registerSingleton<StoriesGetNewAllUsecase>(StoriesGetNewAllUsecase())
       ..registerSingleton<StoriesGetPopularAllUsecase>(

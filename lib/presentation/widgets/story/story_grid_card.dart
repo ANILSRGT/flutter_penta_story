@@ -13,7 +13,7 @@ class StoryGridCard extends StatelessWidget {
     super.key,
   });
 
-  final ImageProvider image;
+  final String image;
   final String title;
   final int pagesCount;
 
@@ -22,9 +22,7 @@ class StoryGridCard extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: StoryBookImage(
-            image: image,
-          ),
+          child: StoryBookImage(image: image),
         ),
         context.ext.sizedBox.height.sm,
         Text(

@@ -37,7 +37,9 @@ final class AuthGuard extends AutoRouteGuard {
     if (authUser != null &&
         authUser.emailVerified &&
         user != null &&
-        resolver.route.name != HomeRoute.page.name) {
+        (resolver.route.name == AuthenticationRoute.page.name ||
+            resolver.route.name == EmailVerificationRoute.page.name ||
+            resolver.route.name == AuthProfileGeneratorRoute.page.name)) {
       router.replaceAll([const HomeRoute()]);
       return;
     }

@@ -46,8 +46,10 @@ final class LocaleKeys {
 	static String get pagesAuthProfileGeneratorMixinOnContinueFormValidateError => 'pages.authProfileGenerator.mixin.onContinue.formValidateError';
 	static String get pagesAuthProfileGeneratorMixinOnContinueUserNotFound => 'pages.authProfileGenerator.mixin.onContinue.userNotFound';
 	static String get pagesHomeSearchBarHint => 'pages.home.searchBar.hint';
-	static String get pagesHomeNewStoriesTitle => 'pages.home.newStoriesTitle';
-	static String get pagesHomePopularStoriesTitle => 'pages.home.popularStoriesTitle';
+	static String get pagesHomeNewStoriesTitle => 'pages.home.newStories.title';
+	static String get pagesHomeNewStoriesNotFound => 'pages.home.newStories.notFound';
+	static String get pagesHomePopularStoriesTitle => 'pages.home.popularStories.title';
+	static String get pagesHomePopularStoriesNotFound => 'pages.home.popularStories.notFound';
 	static String get pagesStorySummaryTitle => 'pages.story.summary.title';
 	static String get pagesStoryReadButtonLabel => 'pages.story.readButton.label';
 	static String get pagesStoryListenButtonLabel => 'pages.story.listenButton.label';
@@ -72,6 +74,8 @@ final class LocaleKeys {
 	static String get dataSourcesStoriesStoryFromDocErrorsStoryNotFound => 'dataSources.stories.storyFromDoc.errors.storyNotFound';
 	static String get dataSourcesStoriesGetStoriesErrorsAnotherError => 'dataSources.stories.getStories.errors.anotherError';
 	static String get dataSourcesStoriesGetStoryByIdErrorsAnotherError => 'dataSources.stories.getStoryById.errors.anotherError';
+	static String get dataSourcesStoriesGetNewStoriesErrorsAnotherError => 'dataSources.stories.getNewStories.errors.anotherError';
+	static String get dataSourcesStoriesGetPopularStoriesErrorsAnotherError => 'dataSources.stories.getPopularStories.errors.anotherError';
 	static String get dataSourcesUsersCreateUserErrorsEmailExists => 'dataSources.users.createUser.errors.emailExists';
 	static String get dataSourcesUsersCreateUserErrorsUsernameExists => 'dataSources.users.createUser.errors.usernameExists';
 	static String get dataSourcesUsersCreateUserErrorsAnotherError => 'dataSources.users.createUser.errors.anotherError';

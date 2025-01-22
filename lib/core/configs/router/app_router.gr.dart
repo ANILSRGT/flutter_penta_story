@@ -163,10 +163,17 @@ class SplashRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [StoryBookPage]
-class StoryBookRoute extends PageRouteInfo<void> {
-  const StoryBookRoute({List<PageRouteInfo>? children})
-      : super(
+class StoryBookRoute extends PageRouteInfo<StoryBookRouteArgs> {
+  StoryBookRoute({
+    required StoryBookPageArgs args,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           StoryBookRoute.name,
+          args: StoryBookRouteArgs(
+            args: args,
+            key: key,
+          ),
           initialChildren: children,
         );
 
@@ -175,17 +182,44 @@ class StoryBookRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const StoryBookPage();
+      final args = data.argsAs<StoryBookRouteArgs>();
+      return StoryBookPage(
+        args: args.args,
+        key: args.key,
+      );
     },
   );
 }
 
+class StoryBookRouteArgs {
+  const StoryBookRouteArgs({
+    required this.args,
+    this.key,
+  });
+
+  final StoryBookPageArgs args;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'StoryBookRouteArgs{args: $args, key: $key}';
+  }
+}
+
 /// generated route for
 /// [StoryDetailsPage]
-class StoryDetailsRoute extends PageRouteInfo<void> {
-  const StoryDetailsRoute({List<PageRouteInfo>? children})
-      : super(
+class StoryDetailsRoute extends PageRouteInfo<StoryDetailsRouteArgs> {
+  StoryDetailsRoute({
+    required StoryDetailsPageArgs args,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           StoryDetailsRoute.name,
+          args: StoryDetailsRouteArgs(
+            args: args,
+            key: key,
+          ),
           initialChildren: children,
         );
 
@@ -194,7 +228,27 @@ class StoryDetailsRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const StoryDetailsPage();
+      final args = data.argsAs<StoryDetailsRouteArgs>();
+      return StoryDetailsPage(
+        args: args.args,
+        key: args.key,
+      );
     },
   );
+}
+
+class StoryDetailsRouteArgs {
+  const StoryDetailsRouteArgs({
+    required this.args,
+    this.key,
+  });
+
+  final StoryDetailsPageArgs args;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'StoryDetailsRouteArgs{args: $args, key: $key}';
+  }
 }

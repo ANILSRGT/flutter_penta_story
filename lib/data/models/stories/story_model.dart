@@ -4,7 +4,7 @@ import 'package:penta_story/core/utils/timestamp_converter.dart';
 import 'package:penta_story/data/models/others/model_with_lang.dart';
 import 'package:penta_story/data/models/stories/story_chapter_model.dart';
 
-part 'story_entity.freezed.dart';
+part 'story_model.freezed.dart';
 
 @Freezed(toJson: false, fromJson: false)
 abstract class StoryModel with _$StoryModel {
@@ -33,11 +33,11 @@ abstract class StoryModel with _$StoryModel {
   }) {
     return StoryModel(
       id: id,
-      title: ModelWithLang.fromJson(json[titleKey] as Map<String, String>),
+      title: ModelWithLang.fromJson(json[titleKey] as Map<String, dynamic>),
       author: json[authorKey] as String,
       description:
-          ModelWithLang.fromJson(json[descriptionKey] as Map<String, String>),
-      summary: ModelWithLang.fromJson(json[summaryKey] as Map<String, String>),
+          ModelWithLang.fromJson(json[descriptionKey] as Map<String, dynamic>),
+      summary: ModelWithLang.fromJson(json[summaryKey] as Map<String, dynamic>),
       image: json[imageKey] as String,
       year: json[yearKey] as int,
       languages: (json[languagesKey] as List)
@@ -58,6 +58,9 @@ abstract class StoryModel with _$StoryModel {
       chapters: chapters,
     );
   }
+
+  int get totalPages =>
+      chapters.map((e) => e.totalPages).fold(0, (a, b) => a + b);
 
   static const titleKey = 'title';
   static const authorKey = 'author';

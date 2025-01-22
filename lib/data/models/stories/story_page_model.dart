@@ -27,6 +27,8 @@ abstract class StoryPageModel with _$StoryPageModel {
     );
   }
 
+  int get totalParts => parts.length;
+
   static const indexKey = 'index';
   static const imageKey = 'image';
 }

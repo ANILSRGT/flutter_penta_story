@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:penta_story/core/configs/router/guards/auth_guard.dart';
 import 'package:penta_story/presentation/pages/auth/auth_profile_generator/auth_profile_generator_page.dart';
 import 'package:penta_story/presentation/pages/auth/authentication/authentication_page.dart';

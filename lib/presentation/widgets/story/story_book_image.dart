@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:penta_story/core/configs/constants/app_icons.dart';
+import 'package:penta_story/core/configs/constants/app_vectors.dart';
+import 'package:penta_story/core/utils/image_string_converter.dart';
 
 class StoryBookImage extends StatelessWidget {
   const StoryBookImage({
@@ -7,10 +10,10 @@ class StoryBookImage extends StatelessWidget {
     super.key,
   });
 
-  final ImageProvider image;
+  final String image;
 
   static Widget opened({
-    required ImageProvider image,
+    required String image,
   }) =>
       _StoryBookOpenedImage(
         image: image,
@@ -79,12 +82,18 @@ class StoryBookImage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    child: Image(
+                    child: ImageStringConverter.imageProviderBuilder(
                       image: image,
-                      errorBuilder: (context, error, stackTrace) {
-                        return const SizedBox();
+                      onError: SvgPicture.asset(AppVectors.images),
+                      builder: (p0) {
+                        return Image(
+                          image: p0,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const SizedBox();
+                          },
+                          fit: BoxFit.cover,
+                        );
                       },
-                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -102,7 +111,7 @@ class _StoryBookOpenedImage extends StatelessWidget {
     required this.image,
   });
 
-  final ImageProvider image;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -144,14 +153,18 @@ class _StoryBookOpenedImage extends StatelessWidget {
               ),
               ClipPath(
                 clipper: _StoryBookOpenedClipper(),
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: image,
-                      onError: (exception, stackTrace) => const SizedBox(),
+                child: ImageStringConverter.imageProviderBuilder(
+                  image: image,
+                  onError: SvgPicture.asset(AppVectors.images),
+                  builder: (p0) {
+                    return Image(
+                      image: p0,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const SizedBox();
+                      },
                       fit: BoxFit.cover,
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
               Positioned.fill(

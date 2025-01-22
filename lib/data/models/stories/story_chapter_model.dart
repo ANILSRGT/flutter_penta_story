@@ -24,12 +24,16 @@ abstract class StoryChapterModel with _$StoryChapterModel {
     return StoryChapterModel(
       id: id,
       index: json[indexKey] as int,
-      title: ModelWithLang.fromJson(json[titleKey] as Map<String, String>),
+      title: ModelWithLang.fromJson(json[titleKey] as Map<String, dynamic>),
       description:
-          ModelWithLang.fromJson(json[descriptionKey] as Map<String, String>),
+          ModelWithLang.fromJson(json[descriptionKey] as Map<String, dynamic>),
       pages: pages,
     );
   }
+
+  int get totalPages => pages.length;
+  int get totalPageParts =>
+      pages.map((e) => e.totalParts).fold(0, (a, b) => a + b);
 
   static const indexKey = 'index';
   static const titleKey = 'title';

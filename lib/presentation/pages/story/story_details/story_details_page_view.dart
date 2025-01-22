@@ -1,7 +1,11 @@
 part of 'story_details_page.dart';
 
 class _StoryDetailsPageView extends StatefulWidget {
-  const _StoryDetailsPageView();
+  const _StoryDetailsPageView({
+    required this.args,
+  });
+
+  final StoryDetailsPageArgs args;
 
   @override
   State<_StoryDetailsPageView> createState() => _StoryDetailsPageViewState();
@@ -42,15 +46,13 @@ class _StoryDetailsPageViewState extends State<_StoryDetailsPageView>
                             landscape: context.ext.screen.height * 0.5,
                           ),
                           child: StoryBookImage.opened(
-                            image: const NetworkImage(
-                              'https://picsum.photos/200/300',
-                            ),
+                            image: widget.args.story.image,
                           ),
                         ),
                       ),
                       context.ext.sizedBox.height.xl3,
                       Text(
-                        'The Little Prince',
+                        widget.args.story.title.data(context) ?? '',
                         textAlign: TextAlign.center,
                         style: context.ext.theme.textTheme.headlineMedium
                             ?.copyWith(
@@ -58,13 +60,13 @@ class _StoryDetailsPageViewState extends State<_StoryDetailsPageView>
                         ),
                       ),
                       Text(
-                        'Antoine de Saint-Exupéry',
+                        widget.args.story.author,
                         textAlign: TextAlign.center,
                         style: context.ext.theme.textTheme.bodySmall,
                       ),
                       context.ext.sizedBox.height.md,
                       Text(
-                        'Voluptate non in laborum deserunt velit minim sit do amet consectetur fugiat nostrud sunt veniam. Occaecat non eiusmod sunt pariatur quis non do incididunt. Fugiat exercitation ad quis minim velit velit sit deserunt laboris amet est pariatur. Eu eiusmod occaecat non.',
+                        widget.args.story.description.data(context) ?? '',
                         textAlign: TextAlign.center,
                         style: context.ext.theme.textTheme.bodyLarge,
                       ),
@@ -78,7 +80,7 @@ class _StoryDetailsPageViewState extends State<_StoryDetailsPageView>
                         title: LocaleKeys.pagesStorySummaryTitle.translate,
                         content: [
                           Text(
-                            'Tempor et deserunt esse do id eu nostrud. Eiusmod magna quis nostrud amet laboris veniam est fugiat sit in eu. Nostrud non consectetur cupidatat velit id ex officia.',
+                            widget.args.story.summary.data(context) ?? '',
                             style: TextStyle(
                               color: context.appThemeExt.appColors.white
                                   .byBrightness(context.ext.theme.isDark)

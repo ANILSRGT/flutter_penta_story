@@ -132,8 +132,14 @@
       "searchBar": {
         "hint": "Hikayeleri ve Yazarları Keşfet"
       },
-      "newStoriesTitle": "Yeni Hikayeler",
-      "popularStoriesTitle": "Popüler Hikayeler"
+      "newStories": {
+        "title": "Yeni Hikayeler",
+        "notFound": "Hikayeler bulunamadı"
+      },
+      "popularStories": {
+        "title": "Popüler Hikayeler",
+        "notFound": "Hikayeler bulunamadı"
+      }
     },
     "story": {
       "summary": {
@@ -213,17 +219,27 @@
     "stories": {
       "storyFromDoc": {
         "errors": {
-          "storyNotFound": "Failed to load story"
+          "storyNotFound": "Hikaye yüklenemedi"
         }
       },
       "getStories": {
         "errors": {
-          "anotherError": "Failed to load stories"
+          "anotherError": "Hikayeler yüklenirken bir hata oluştu"
         }
       },
       "getStoryById": {
         "errors": {
-          "anotherError": "Failed to load story"
+          "anotherError": "Hikaye yüklenirken bir hata oluştu"
+        }
+      },
+      "getNewStories": {
+        "errors": {
+          "anotherError": "Hikayeler yüklenirken bir hata oluştu"
+        }
+      },
+      "getPopularStories": {
+        "errors": {
+          "anotherError": "Hikayeler yüklenirken bir hata oluştu"
         }
       }
     },

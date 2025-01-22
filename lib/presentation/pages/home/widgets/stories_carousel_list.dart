@@ -1,7 +1,11 @@
 part of '../home_page.dart';
 
 class _StoriesCarouselList extends StatelessWidget {
-  const _StoriesCarouselList();
+  const _StoriesCarouselList({
+    required this.stories,
+  });
+
+  final List<StoryModel> stories;
 
   @override
   Widget build(BuildContext context) {
@@ -15,24 +19,24 @@ class _StoriesCarouselList extends StatelessWidget {
         itemSnapping: true,
         backgroundColor: Colors.transparent,
         enableSplash: false,
-        children: List.generate(
-          6,
-          (index) {
+        children: stories.map(
+          (story) {
             return GestureDetector(
               onTap: () {
-                // TODO: navigate book detail
-
-                context.router.push(const StoryDetailsRoute());
+                context.router.push(
+                  StoryDetailsRoute(
+                    args: StoryDetailsPageArgs(story: story),
+                  ),
+                );
               },
               child: StoryGridCard(
-                image:
-                    NetworkImage('https://picsum.photos/200/300?random=$index'),
-                title: 'The Little Prince',
-                pagesCount: 100,
+                image: story.image,
+                title: story.title.data(context) ?? '',
+                pagesCount: story.totalPages,
               ),
             );
           },
-        ),
+        ).toList(),
       ),
     );
   }

@@ -53,6 +53,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  custom_lint:
   very_good_analysis: ^7.0.0
 
   # Code Generation

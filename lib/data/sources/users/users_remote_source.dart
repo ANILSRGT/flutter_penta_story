@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:penta_core/penta_core.dart';
-import 'package:penta_story/core/configs/constants/firestore_paths.dart';
+import 'package:penta_story/core/configs/constants/firestore_collections.dart';
 import 'package:penta_story/core/extensions/localization_ext.dart';
 import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/data/models/users/params/users_create_params.dart';
@@ -20,7 +20,7 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
     try {
       final emailCheckSnap = await Injection.I
           .read<FirebaseFirestore>()
-          .collection(FirestorePaths.users)
+          .collection(FirestoreCollections.users)
           .where(UserModel.emailKey, isEqualTo: params.user.email)
           .limit(1)
           .get();
@@ -35,7 +35,7 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
 
       final usernameCheckSnap = await Injection.I
           .read<FirebaseFirestore>()
-          .collection(FirestorePaths.users)
+          .collection(FirestoreCollections.users)
           .where(UserModel.usernameKey, isEqualTo: params.user.username)
           .limit(1)
           .get();
@@ -50,7 +50,7 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
 
       await Injection.I
           .read<FirebaseFirestore>()
-          .collection(FirestorePaths.users)
+          .collection(FirestoreCollections.users)
           .doc(params.user.id)
           .set(params.user.toJson());
 
@@ -73,7 +73,7 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
     try {
       final userDoc = await Injection.I
           .read<FirebaseFirestore>()
-          .collection(FirestorePaths.users)
+          .collection(FirestoreCollections.users)
           .doc(params.id)
           .get();
       final data = userDoc.data();
@@ -107,7 +107,7 @@ final class UsersRemoteSourceImpl implements UsersRemoteSource {
     try {
       final usersSnapshot = await Injection.I
           .read<FirebaseFirestore>()
-          .collection(FirestorePaths.users)
+          .collection(FirestoreCollections.users)
           .get();
       final users = usersSnapshot.docs
           .map((doc) => UserModel.fromJson(id: doc.id, json: doc.data()))
