@@ -6,7 +6,7 @@ import 'package:penta_story/core/configs/theme/i_app_theme.dart';
 import 'package:penta_story/core/extensions/localization_ext.dart';
 import 'package:penta_story/core/localization/locale_keys.g.dart';
 import 'package:penta_story/data/models/stories/story_model.dart';
-import 'package:penta_story/presentation/pages/story/story_book/story_book_page.dart';
+import 'package:penta_story/presentation/pages/story/story_read_book/story_book_page.dart';
 import 'package:penta_story/presentation/widgets/buttons/app_elevated_button.dart';
 import 'package:penta_story/presentation/widgets/dropdown/app_lang_dropdown.dart';
 import 'package:penta_story/presentation/widgets/story/story_book_image.dart';

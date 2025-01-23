@@ -9,7 +9,7 @@ import 'package:penta_story/presentation/pages/auth/onboarding/onboarding_page.d
 import 'package:penta_story/presentation/pages/auth/splash/splash_page.dart';
 import 'package:penta_story/presentation/pages/home/home_page.dart';
 import 'package:penta_story/presentation/pages/profile/profile_page.dart';
-import 'package:penta_story/presentation/pages/story/story_book/story_book_page.dart';
+import 'package:penta_story/presentation/pages/story/story_read_book/story_book_page.dart';
 import 'package:penta_story/presentation/pages/story/story_details/story_details_page.dart';
 
 part 'app_router.gr.dart';

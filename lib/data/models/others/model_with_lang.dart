@@ -30,6 +30,7 @@ class ModelWithLang<T> {
   }
 
   T? data(BuildContext context) {
+    if (!context.mounted) return null;
     return _data[AppLocaliaztionsEnum.fromLocale(context.locale)];
   }
 

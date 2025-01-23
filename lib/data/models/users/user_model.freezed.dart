@@ -22,6 +22,7 @@ mixin _$UserModel {
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get bio => throw _privateConstructorUsedError;
+  UserRoles get role => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
 
   /// Create a copy of UserModel
@@ -43,6 +44,7 @@ abstract class $UserModelCopyWith<$Res> {
       String firstName,
       String lastName,
       String bio,
+      UserRoles role,
       String? image});
 }
 
@@ -67,6 +69,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? firstName = null,
     Object? lastName = null,
     Object? bio = null,
+    Object? role = null,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
@@ -94,6 +97,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.bio
           : bio // ignore: cast_nullable_to_non_nullable
               as String,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as UserRoles,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -117,6 +124,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
       String firstName,
       String lastName,
       String bio,
+      UserRoles role,
       String? image});
 }
 
@@ -139,6 +147,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? firstName = null,
     Object? lastName = null,
     Object? bio = null,
+    Object? role = null,
     Object? image = freezed,
   }) {
     return _then(_$UserModelImpl(
@@ -166,6 +175,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.bio
           : bio // ignore: cast_nullable_to_non_nullable
               as String,
+      role: null == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as UserRoles,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -184,6 +197,7 @@ class _$UserModelImpl extends _UserModel {
       required this.firstName,
       required this.lastName,
       required this.bio,
+      this.role = UserRoles.user,
       this.image = null})
       : super._();
 
@@ -201,11 +215,14 @@ class _$UserModelImpl extends _UserModel {
   final String bio;
   @override
   @JsonKey()
+  final UserRoles role;
+  @override
+  @JsonKey()
   final String? image;
 
   @override
   String toString() {
-    return 'UserModel(id: $id, username: $username, email: $email, firstName: $firstName, lastName: $lastName, bio: $bio, image: $image)';
+    return 'UserModel(id: $id, username: $username, email: $email, firstName: $firstName, lastName: $lastName, bio: $bio, role: $role, image: $image)';
   }
 
   @override
@@ -222,12 +239,13 @@ class _$UserModelImpl extends _UserModel {
             (identical(other.lastName, lastName) ||
                 other.lastName == lastName) &&
             (identical(other.bio, bio) || other.bio == bio) &&
+            (identical(other.role, role) || other.role == role) &&
             (identical(other.image, image) || other.image == image));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, username, email, firstName, lastName, bio, image);
+      runtimeType, id, username, email, firstName, lastName, bio, role, image);
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.
@@ -246,6 +264,7 @@ abstract class _UserModel extends UserModel {
       required final String firstName,
       required final String lastName,
       required final String bio,
+      final UserRoles role,
       final String? image}) = _$UserModelImpl;
   _UserModel._() : super._();
 
@@ -261,6 +280,8 @@ abstract class _UserModel extends UserModel {
   String get lastName;
   @override
   String get bio;
+  @override
+  UserRoles get role;
   @override
   String? get image;
 

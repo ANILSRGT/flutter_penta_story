@@ -4,12 +4,22 @@ mixin _StoryDetailsPageViewMixin on State<_StoryDetailsPageView> {
   void _onRead() {
     context.router.push(
       StoryBookRoute(
-        args: StoryBookPageArgs(story: widget.args.story),
+        args: StoryBookPageArgs(
+          story: widget.args.story,
+          bookType: StoryBookTypes.read,
+        ),
       ),
     );
   }
 
   void _onListen() {
-    // TODO: navigate listen
+    context.router.push(
+      StoryBookRoute(
+        args: StoryBookPageArgs(
+          story: widget.args.story,
+          bookType: StoryBookTypes.listen,
+        ),
+      ),
+    );
   }
 }

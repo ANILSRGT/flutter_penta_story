@@ -44,6 +44,7 @@ dependencies:
   # Utils
   image_picker: ^1.1.2
   image_cropper: ^8.1.0
+  flutter_tts: ^4.2.1
 
   penta_core:
     git:
