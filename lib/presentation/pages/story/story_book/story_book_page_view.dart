@@ -22,13 +22,7 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
 
   Widget _buildBody(BuildContext context) {
     return ImageStringConverter.imageProviderBuilder(
-      image: _isInitial
-          ? widget.args.story.image
-          : widget.args.story.chapters
-              .firstWhere((e) => e.index == _currentChapter)
-              .pages
-              .firstWhere((e) => e.index == _currentChapterPage)
-              .image,
+      image: _isInitial ? widget.args.story.image : _currentChapterPage.image,
       builder: (imageProvider) => DecoratedBox(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -131,23 +125,7 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
           ),
         const Spacer(),
         AppLangDropdown.circle(
-          onChanged: (value) async {
-            if (widget.args.bookType == StoryBookTypes.read) {
-              setState(() {});
-              return;
-            }
-            await context.showLoadingDialog(
-              future: () async {
-                await _flutterTts.stop();
-                await _flutterTts.setLanguage(
-                  '${value.languageCode}-${value.countryCode}',
-                );
-              },
-              callback: (_) {
-                setState(() {});
-              },
-            );
-          },
+          onChanged: _onChangedLang,
         ),
       ],
     );
@@ -166,11 +144,7 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
 
   Text _chapterTitle(BuildContext context) {
     return Text(
-      widget.args.story.chapters
-              .firstWhere((e) => e.index == _currentChapter)
-              .title
-              .data(context) ??
-          '',
+      _currentChapter.title.data(context) ?? '',
       textAlign: TextAlign.center,
       style: context.ext.theme.textTheme.headlineMedium?.copyWith(
         fontWeight: FontWeight.w600,
@@ -181,21 +155,7 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
 
   Text _pagePartContent(BuildContext context) {
     return Text(
-      widget.args.story.chapters
-              .firstWhere(
-                (e) => e.index == _currentChapter,
-              )
-              .pages
-              .firstWhere(
-                (e) => e.index == _currentChapterPage,
-              )
-              .parts
-              .firstWhere(
-                (e) => e.index == _currentChapterPagePart,
-              )
-              .content
-              .data(context) ??
-          '',
+      _currentChapterPagePart.content.data(context) ?? '',
       textAlign: TextAlign.center,
       style: context.ext.theme.textTheme.bodyLarge?.copyWith(
         fontWeight: FontWeight.w500,
@@ -206,16 +166,16 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
 
   GestureDetector _prevButton(BuildContext context) {
     return GestureDetector(
-      onTap: _currentChapter == 0 &&
-              _currentChapterPage == 0 &&
-              _currentChapterPagePart == 0 &&
+      onTap: _currentChapterIndex == 0 &&
+              _currentChapterPageIndex == 0 &&
+              _currentChapterPagePartIndex == 0 &&
               _isInitial
           ? null
           : _previousPart,
       child: CircleAvatar(
-        backgroundColor: _currentChapter == 0 &&
-                _currentChapterPage == 0 &&
-                _currentChapterPagePart == 0 &&
+        backgroundColor: _currentChapterIndex == 0 &&
+                _currentChapterPageIndex == 0 &&
+                _currentChapterPagePartIndex == 0 &&
                 _isInitial
             ? context.ext.theme.convertByBrightness(
                 light: context.appThemeExt.appColors.grey,
@@ -224,9 +184,9 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
             : context.appThemeExt.appColors.white.byBrightness(
                 context.ext.theme.isDark,
               ),
-        foregroundColor: _currentChapter == 0 &&
-                _currentChapterPage == 0 &&
-                _currentChapterPagePart == 0 &&
+        foregroundColor: _currentChapterIndex == 0 &&
+                _currentChapterPageIndex == 0 &&
+                _currentChapterPagePartIndex == 0 &&
                 _isInitial
             ? context.ext.theme
                 .convertByBrightness(
@@ -252,7 +212,8 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
           .byBrightness(context.ext.theme.isDark)
           .onColor,
       child: Text(
-        _isInitial ? '0' : _currentIndex.toString(),
+        // TODO: Display index
+        _isInitial ? '0' : '0',
         textAlign: TextAlign.center,
         style: context.ext.theme.textTheme.titleMedium
             ?.copyWith(fontWeight: FontWeight.w600),
@@ -262,15 +223,15 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
 
   GestureDetector _nextButton(BuildContext context) {
     return GestureDetector(
-      onTap: _currentChapter == _maxChapter - 1 &&
-              _currentChapterPage == _maxChapterPage - 1 &&
-              _currentChapterPagePart == _maxChapterPagePart - 1
+      onTap: _currentChapterIndex == _maxChapters - 1 &&
+              _currentChapterPageIndex == _maxCurrentPages - 1 &&
+              _currentChapterPagePartIndex == _maxCurrentParts - 1
           ? null
           : _nextPart,
       child: CircleAvatar(
-        backgroundColor: _currentChapter == _maxChapter - 1 &&
-                _currentChapterPage == _maxChapterPage - 1 &&
-                _currentChapterPagePart == _maxChapterPagePart - 1
+        backgroundColor: _currentChapterIndex == _maxChapters - 1 &&
+                _currentChapterPageIndex == _maxCurrentPages - 1 &&
+                _currentChapterPagePartIndex == _maxCurrentParts - 1
             ? context.ext.theme.convertByBrightness(
                 light: context.appThemeExt.appColors.grey,
                 dark: context.appThemeExt.appColors.darkGrey,
@@ -278,9 +239,9 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
             : context.appThemeExt.appColors.white.byBrightness(
                 context.ext.theme.isDark,
               ),
-        foregroundColor: _currentChapter == _maxChapter - 1 &&
-                _currentChapterPage == _maxChapterPage - 1 &&
-                _currentChapterPagePart == _maxChapterPagePart - 1
+        foregroundColor: _currentChapterIndex == _maxChapters - 1 &&
+                _currentChapterPageIndex == _maxCurrentPages - 1 &&
+                _currentChapterPagePartIndex == _maxCurrentParts - 1
             ? context.ext.theme
                 .convertByBrightness(
                   light: context.appThemeExt.appColors.grey,

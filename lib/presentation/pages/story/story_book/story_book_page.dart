@@ -8,7 +8,10 @@ import 'package:penta_story/core/configs/enums/app_localiaztions_enum.dart';
 import 'package:penta_story/core/configs/theme/i_app_theme.dart';
 import 'package:penta_story/core/utils/app_loading_dialog.dart';
 import 'package:penta_story/core/utils/image_string_converter.dart';
+import 'package:penta_story/data/models/stories/story_chapter_model.dart';
 import 'package:penta_story/data/models/stories/story_model.dart';
+import 'package:penta_story/data/models/stories/story_page_model.dart';
+import 'package:penta_story/data/models/stories/story_page_part_model.dart';
 import 'package:penta_story/presentation/widgets/dropdown/app_lang_dropdown.dart';
 import 'package:penta_story/presentation/widgets/loading_indicator/app_loading_indicator.dart';
 
