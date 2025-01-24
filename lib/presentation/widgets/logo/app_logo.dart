@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:penta_story/core/configs/constants/app_vectors.dart';
 
 class AppLogo extends StatelessWidget {
   const AppLogo({
@@ -12,7 +14,9 @@ class AppLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.square(
       dimension: size,
-      child: const Placeholder(),
+      child: SvgPicture.asset(
+        AppVectors.logo,
+      ),
     );
   }
 }

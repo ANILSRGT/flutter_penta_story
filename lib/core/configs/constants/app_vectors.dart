@@ -4,6 +4,7 @@ final class AppVectors {
   static const _basePath = 'assets/vectors';
   static const _ext = '.svg';
 
+  static const logo = '$_basePath/app_logo$_ext';
   static const welcome = '$_basePath/welcome_vector$_ext';
   static const readingBook = '$_basePath/reading_book_vector$_ext';
   static const listening = '$_basePath/listening_vector$_ext';

@@ -19,7 +19,12 @@ class _SplashPageViewState extends State<_SplashPageView>
               children: [
                 SizedBox(height: context.ext.screen.height * 0.05),
                 const Spacer(),
-                const AppLogo(),
+                AppLogo(
+                  size: context.ext.screen.byOrientation(
+                    portrait: context.ext.screen.size.width * 0.5,
+                    landscape: context.ext.screen.size.height * 0.35,
+                  ),
+                ),
                 const Spacer(),
                 const AppLoadingIndicator(),
                 SizedBox(height: context.ext.screen.height * 0.05),
