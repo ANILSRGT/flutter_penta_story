@@ -10,7 +10,7 @@ abstract class StoryChapterModel with _$StoryChapterModel {
     required String id,
     required int index,
     required ModelWithLang<String> title,
-    required ModelWithLang<String> description,
+    required ModelWithLang<String> summary,
     required List<StoryPageModel> pages,
   }) = _StoryChapterModel;
 
@@ -25,8 +25,7 @@ abstract class StoryChapterModel with _$StoryChapterModel {
       id: id,
       index: json[indexKey] as int,
       title: ModelWithLang.fromJson(json[titleKey] as Map<String, dynamic>),
-      description:
-          ModelWithLang.fromJson(json[descriptionKey] as Map<String, dynamic>),
+      summary: ModelWithLang.fromJson(json[summaryKey] as Map<String, dynamic>),
       pages: pages,
     );
   }
@@ -37,5 +36,5 @@ abstract class StoryChapterModel with _$StoryChapterModel {
 
   static const indexKey = 'index';
   static const titleKey = 'title';
-  static const descriptionKey = 'description';
+  static const summaryKey = 'summary';
 }

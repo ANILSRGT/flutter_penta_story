@@ -50,6 +50,7 @@ final class LocaleKeys {
 	static String get pagesHomeNewStoriesNotFound => 'pages.home.newStories.notFound';
 	static String get pagesHomePopularStoriesTitle => 'pages.home.popularStories.title';
 	static String get pagesHomePopularStoriesNotFound => 'pages.home.popularStories.notFound';
+	static String get pagesStoryBookChapterSummary => 'pages.storyBook.chapter.summary';
 	static String get pagesStorySummaryTitle => 'pages.story.summary.title';
 	static String get pagesStoryReadButtonLabel => 'pages.story.readButton.label';
 	static String get pagesStoryListenButtonLabel => 'pages.story.listenButton.label';

@@ -61,6 +61,9 @@ abstract class StoryModel with _$StoryModel {
 
   int get totalPages =>
       chapters.map((e) => e.totalPages).fold(0, (a, b) => a + b);
+  int get totalChapters => chapters.length;
+  int get totalPageParts =>
+      chapters.map((e) => e.totalPageParts).fold(0, (a, b) => a + b);
 
   static const titleKey = 'title';
   static const authorKey = 'author';

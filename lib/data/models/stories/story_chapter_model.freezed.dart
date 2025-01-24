@@ -19,7 +19,7 @@ mixin _$StoryChapterModel {
   String get id => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
   ModelWithLang<String> get title => throw _privateConstructorUsedError;
-  ModelWithLang<String> get description => throw _privateConstructorUsedError;
+  ModelWithLang<String> get summary => throw _privateConstructorUsedError;
   List<StoryPageModel> get pages => throw _privateConstructorUsedError;
 
   /// Create a copy of StoryChapterModel
@@ -39,7 +39,7 @@ abstract class $StoryChapterModelCopyWith<$Res> {
       {String id,
       int index,
       ModelWithLang<String> title,
-      ModelWithLang<String> description,
+      ModelWithLang<String> summary,
       List<StoryPageModel> pages});
 }
 
@@ -61,7 +61,7 @@ class _$StoryChapterModelCopyWithImpl<$Res, $Val extends StoryChapterModel>
     Object? id = null,
     Object? index = null,
     Object? title = null,
-    Object? description = null,
+    Object? summary = null,
     Object? pages = null,
   }) {
     return _then(_value.copyWith(
@@ -77,9 +77,9 @@ class _$StoryChapterModelCopyWithImpl<$Res, $Val extends StoryChapterModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as ModelWithLang<String>,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      summary: null == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
               as ModelWithLang<String>,
       pages: null == pages
           ? _value.pages
@@ -101,7 +101,7 @@ abstract class _$$StoryChapterModelImplCopyWith<$Res>
       {String id,
       int index,
       ModelWithLang<String> title,
-      ModelWithLang<String> description,
+      ModelWithLang<String> summary,
       List<StoryPageModel> pages});
 }
 
@@ -121,7 +121,7 @@ class __$$StoryChapterModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? index = null,
     Object? title = null,
-    Object? description = null,
+    Object? summary = null,
     Object? pages = null,
   }) {
     return _then(_$StoryChapterModelImpl(
@@ -137,9 +137,9 @@ class __$$StoryChapterModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as ModelWithLang<String>,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      summary: null == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
               as ModelWithLang<String>,
       pages: null == pages
           ? _value._pages
@@ -156,7 +156,7 @@ class _$StoryChapterModelImpl extends _StoryChapterModel {
       {required this.id,
       required this.index,
       required this.title,
-      required this.description,
+      required this.summary,
       required final List<StoryPageModel> pages})
       : _pages = pages,
         super._();
@@ -168,7 +168,7 @@ class _$StoryChapterModelImpl extends _StoryChapterModel {
   @override
   final ModelWithLang<String> title;
   @override
-  final ModelWithLang<String> description;
+  final ModelWithLang<String> summary;
   final List<StoryPageModel> _pages;
   @override
   List<StoryPageModel> get pages {
@@ -179,7 +179,7 @@ class _$StoryChapterModelImpl extends _StoryChapterModel {
 
   @override
   String toString() {
-    return 'StoryChapterModel(id: $id, index: $index, title: $title, description: $description, pages: $pages)';
+    return 'StoryChapterModel(id: $id, index: $index, title: $title, summary: $summary, pages: $pages)';
   }
 
   @override
@@ -190,13 +190,12 @@ class _$StoryChapterModelImpl extends _StoryChapterModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.summary, summary) || other.summary == summary) &&
             const DeepCollectionEquality().equals(other._pages, _pages));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, index, title, description,
+  int get hashCode => Object.hash(runtimeType, id, index, title, summary,
       const DeepCollectionEquality().hash(_pages));
 
   /// Create a copy of StoryChapterModel
@@ -214,7 +213,7 @@ abstract class _StoryChapterModel extends StoryChapterModel {
       {required final String id,
       required final int index,
       required final ModelWithLang<String> title,
-      required final ModelWithLang<String> description,
+      required final ModelWithLang<String> summary,
       required final List<StoryPageModel> pages}) = _$StoryChapterModelImpl;
   const _StoryChapterModel._() : super._();
 
@@ -225,7 +224,7 @@ abstract class _StoryChapterModel extends StoryChapterModel {
   @override
   ModelWithLang<String> get title;
   @override
-  ModelWithLang<String> get description;
+  ModelWithLang<String> get summary;
   @override
   List<StoryPageModel> get pages;
 

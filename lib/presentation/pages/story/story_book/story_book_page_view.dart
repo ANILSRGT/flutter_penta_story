@@ -80,6 +80,11 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
                         ],
                         context.ext.sizedBox.height.xl3,
                         const Spacer(),
+                        Visibility(
+                          visible: !_isInitial,
+                          child: _chapterSummary(context),
+                        ),
+                        context.ext.sizedBox.height.xl3,
                         Padding(
                           padding: context.ext.padding.horizontal.xl,
                           child: Row(
@@ -153,6 +158,28 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
     );
   }
 
+  Widget _chapterSummary(BuildContext context) {
+    final descColor = context.ext.theme.convertByBrightness(
+      light: context.appThemeExt.appColors.lightGrey,
+      dark: context.appThemeExt.appColors.darkGrey,
+    );
+    return AppExpansionTile(
+      backgroundColor: descColor,
+      foregroundColor: descColor.onColor,
+      title: LocaleKeys.pagesStoryBookChapterSummary.translate,
+      content: [
+        Text(
+          _currentChapter.summary.data(context) ?? '',
+          textAlign: TextAlign.center,
+          style: context.ext.theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.w500,
+            color: descColor.onColor,
+          ),
+        ),
+      ],
+    );
+  }
+
   Text _pagePartContent(BuildContext context) {
     return Text(
       _currentChapterPagePart.content.data(context) ?? '',
@@ -204,19 +231,26 @@ class _StoryBookPageViewState extends State<_StoryBookPageView>
     );
   }
 
-  CircleAvatar _chapterPart(BuildContext context) {
-    return CircleAvatar(
-      backgroundColor: context.appThemeExt.appColors.background
-          .byBrightness(context.ext.theme.isDark),
-      foregroundColor: context.appThemeExt.appColors.background
-          .byBrightness(context.ext.theme.isDark)
-          .onColor,
-      child: Text(
-        // TODO: Display index
-        _isInitial ? '0' : '0',
-        textAlign: TextAlign.center,
-        style: context.ext.theme.textTheme.titleMedium
-            ?.copyWith(fontWeight: FontWeight.w600),
+  Visibility _chapterPart(BuildContext context) {
+    return Visibility(
+      visible: !_isInitial,
+      child: CircleAvatar(
+        backgroundColor: context.appThemeExt.appColors.background
+            .byBrightness(context.ext.theme.isDark),
+        foregroundColor: context.appThemeExt.appColors.background
+            .byBrightness(context.ext.theme.isDark)
+            .onColor,
+        child: Text(
+          _chaptersPagesParts
+              .expand((e) => e)
+              .expand((e) => e)
+              .toList()
+              .indexOf(_currentChapterPagePart)
+              .toString(),
+          textAlign: TextAlign.center,
+          style: context.ext.theme.textTheme.titleMedium
+              ?.copyWith(fontWeight: FontWeight.w600),
+        ),
       ),
     );
   }

@@ -141,6 +141,11 @@
         "notFound": "Hikayeler bulunamadı"
       }
     },
+    "storyBook": {
+      "chapter": {
+        "summary": "Bölüm Özeti (Spoiler İçerir)"
+      }
+    },
     "story": {
       "summary": {
         "title": "Özet"

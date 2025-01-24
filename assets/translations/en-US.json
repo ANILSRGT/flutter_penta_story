@@ -141,6 +141,11 @@
         "notFound": "Stories not found"
       }
     },
+    "storyBook": {
+      "chapter": {
+        "summary": "Chapter Summary (Spoilers Ahead!)"
+      }
+    },
     "story": {
       "summary": {
         "title": "Summary"

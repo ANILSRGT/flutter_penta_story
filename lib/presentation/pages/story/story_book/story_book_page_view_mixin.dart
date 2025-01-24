@@ -119,7 +119,6 @@ mixin _StoryBookPageViewMixin on State<_StoryBookPageView> {
     if (_isInitial) {
       setState(() {
         _isInitial = false;
-        _currentChapterPagePartIndex++;
       });
     } else if (_currentChapterPagePartIndex < _maxCurrentParts - 1) {
       setState(() {
@@ -141,12 +140,7 @@ mixin _StoryBookPageViewMixin on State<_StoryBookPageView> {
 
   void _previousPart() {
     if (!mounted) return;
-    if (!_isInitial) {
-      setState(() {
-        _isInitial = true;
-        _currentChapterPagePartIndex = 0;
-      });
-    } else if (_currentChapterPagePartIndex > 0) {
+    if (_currentChapterPagePartIndex > 0) {
       setState(() {
         _currentChapterPagePartIndex--;
       });
@@ -163,6 +157,11 @@ mixin _StoryBookPageViewMixin on State<_StoryBookPageView> {
                     [_currentChapterPageIndex]
                 .length -
             1;
+      });
+    } else if (!_isInitial) {
+      setState(() {
+        _isInitial = true;
+        _currentChapterPagePartIndex = 0;
       });
     }
   }
