@@ -23,7 +23,7 @@ flutter pub get
 
 ## Screen Shots
 
-<center>
+<div align=center>
     <img src="resources/screenshots/splash.png" alt="splash" height="250px">
     <img src="resources/screenshots/onboard1.png" alt="onboard1" height="250px">
     <img src="resources/screenshots/onboard2.png" alt="onboard2" height="250px">
