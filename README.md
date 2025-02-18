@@ -40,4 +40,4 @@ flutter pub get
     <img src="resources/screenshots/read_book_2.png" alt="read book 2" height="350px">
     <img src="resources/screenshots/read_book_2_1.png" alt="read book 2_1" height="350px">
     <img src="resources/screenshots/profile.png" alt="profile" height="350px">
-</center>
+</div>
