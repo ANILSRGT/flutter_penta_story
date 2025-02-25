@@ -1,6 +1,6 @@
 # Penta Story
 
-Penta Story is a story book app. Users can read stories and listen to them.
+Penta Story is a digital storybook app that allows users to read and listen to a variety of stories. The app offers stories across different genres and age groups, making it suitable for readers of all ages. Users can select their favorite stories to read digitally or enjoy them through the audio narration feature for a more immersive experience. Penta Story provides an interactive reading experience, combining entertainment and education to create an engaging storytelling platform.
 
 ## Setup
 
